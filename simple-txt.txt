@@ -1,0 +1,17 @@
+# AMC-TXT source
+LaTeX-BeginDocument:
+PaperSize: A4
+Lang: FR
+Title: Mon premier questionnaire
+
+Presentation: Veuillez répondre aux questions
+ci-dessous du mieux que vous pouvez.
+
+* Quelle est la capitale du Cameroun ?
++ Yaoundé
+- Douala
+- Kribi
+
+* Qui est le meilleur dev de France ?
+- Benjamin
++ Evann
