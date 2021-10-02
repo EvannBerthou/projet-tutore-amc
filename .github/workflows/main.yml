@@ -13,12 +13,4 @@ jobs:
 
     steps:
       - name: Deploy to sandbox via rsync
-        uses: trendyminds/github-actions-rsync@master
-        with:
-          RSYNC_OPTIONS: -avzr --exclude output --exclude '.git*'
-          RSYNC_TARGET: /var/www/projet
-          RSYNC_SOURCE: /
-        env:
-          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
-          SSH_USERNAME: ${{secrets.SSH_USERNAME}}
-          SSH_HOSTNAME: ${{secrets.SSH_HOSTNAME}}
+        run: rsync -avz / ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOSTNAME }}:/var/www/projet
