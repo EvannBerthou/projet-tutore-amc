@@ -13,8 +13,7 @@ function ecrire_questions_fichier($fichier, $questions) {
     foreach ($questions as $question) {
         check_die(fwrite($fp, "* $question[0]\n"));
         foreach (array_slice($question, 1) as $reponse) {
-            $sign = $reponse[1] ? '+' : '-';
-            check_die(fwrite($fp, "$sign $reponse[0]\n"));
+            $sign = $reponse[1] ? '+' : '-'; check_die(fwrite($fp, "$sign $reponse[0]\n"));
         }
         check_die(fwrite($fp, "\n"));
     }
@@ -22,7 +21,7 @@ function ecrire_questions_fichier($fichier, $questions) {
 }
 
 function creer_qcm($fichier) {
-    $command = "./compile.sh $fichier";
+    $command = "../compile.sh $fichier";
     $escaped = escapeshellcmd($command);
     shell_exec($escaped);
 }

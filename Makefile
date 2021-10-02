@@ -1,7 +1,7 @@
 all: generate_output
 
 generate_output:
-	mkdir -p output/{cr,data,exports,scans}
+	if ! [ -d "output" ]; then mkdir -p output/{cr,data,exports,scans}; fi
 
 clean:
 	rm -dr output

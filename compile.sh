@@ -1,5 +1,6 @@
 PROJECT=$1
 
+make
 echo Compiling $PROJECT
 cp $PROJECT output/$PROJECT
 cd output
