@@ -5,7 +5,9 @@ function check_die($res) {
 }
 
 function ecrire_questions_fichier($fichier, $questions) {
-    $fp = check_die(fopen($fichier, 'w'));
+    $chemin_fichier = "questions/$fichier";
+    $fp = check_die(fopen($chemin_fichier, 'w'));
+
     foreach ($questions as $question) {
         check_die(fwrite($fp, "* $question[0]\n"));
         foreach (array_slice($question, 1) as $reponse) {
@@ -13,6 +15,7 @@ function ecrire_questions_fichier($fichier, $questions) {
         }
         check_die(fwrite($fp, "\n"));
     }
+
     fclose($fp);
 }
 
