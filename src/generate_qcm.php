@@ -5,9 +5,8 @@ function check_die($res) {
 }
 
 function ecrire_questions_fichier($fichier, $questions) {
-    $chemin_fichier = "questions/$fichier";
+    $chemin_fichier = "../questions/$fichier";
     $fp = check_die(fopen($chemin_fichier, 'w'));
-
     foreach ($questions as $question) {
         check_die(fwrite($fp, "* $question[0]\n"));
         foreach (array_slice($question, 1) as $reponse) {
@@ -20,8 +19,9 @@ function ecrire_questions_fichier($fichier, $questions) {
 }
 
 function creer_qcm($fichier) {
-    $command = "./compile.sh $fichier";
+    $command = "../compile.sh $fichier";
     $escaped = escapeshellcmd($command);
+    echo $escaped;
     shell_exec($escaped);
 }
 
@@ -36,7 +36,7 @@ $data = array(
     array('question 4', array('réponse 3', false), array('réponse 2', true)),
     array('question 5', array('réponse 3', false), array('réponse 2', true)),
 );
-echo "Je suis un test";
+
 ecrire_questions_fichier($data[0], array_slice($data, 1));
 creer_qcm($data[0]);
 ?>
