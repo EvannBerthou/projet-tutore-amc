@@ -30,7 +30,10 @@ $data = array(
     array('question 1', array('réponse 1', true), array('réponse 2', false)),
     array('question 2', array('réponse 1', false), array('réponse 2', true)),
     array('question 3', array('réponse 3', false), array('réponse 2', true)),
+    array('question 4', array('réponse 3', false), array('réponse 2', true)),
+    array('question 5', array('réponse 3', false), array('réponse 2', true)),
 );
+echo "Je suis un test";
 ecrire_questions_fichier($data[0], array_slice($data, 1));
 creer_qcm($data[0]);
 ?>
