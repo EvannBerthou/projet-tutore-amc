@@ -3,13 +3,26 @@
 Projet tutoré pour le S3.
 
 # Prérequis
-- Linux
+- Linux (Testé sur Ubuntu et Arch Linnx)
 - AMC 
 - LaTeX
-- Serveur PHP (testé pour apache et PHP8)
+- Apache2 et PHP (Testé pour PHP8)
+- Make (Optionnel) 
+  
+# Structure du projet
+```
+.
+├── output          # Dossier où tous les fichiers sont générés par AMC
+├── questions       # Dossier contenant les questions
+├── src             # Code source du programme
+├── README.md       # Ce fichier
+├── compile.sh      # Script servant de wrapper à AMC
+└── Makefile        # Makefile générant la structure du projet 
+```
 
 # Préparation
-
+Premièrement, il faut gérer la structure du projet ainsi qu'appliquer les permissions nécessaires.
+Toute cette partie a été automatisée dans un Makefile mais son utilisation n'est pas obligatoire.
 ```sh
 $ make
 ```
