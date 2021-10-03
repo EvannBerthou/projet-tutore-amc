@@ -1,8 +1,15 @@
 <?php
 
-$filename = "questions_filtered-sujet.pdf";
-$filepath = "../output/$filename";
-header("Content-disposition: attachment;filename=$filepath");
-readfile($filepath);
+if (!isset($_GET['fichier'])) {
+    die("Aucun fichier donné");
+}
 
+$fichier = $_GET['fichier'];
+$chemin = "../output/$fichier";
+if (!file_exists($chemin)) {
+    die("Fichier non existant");
+}
+
+header("Content-disposition: attachment;filename=$chemin");
+readfile($chemin);
 ?>
