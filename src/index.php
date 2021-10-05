@@ -39,27 +39,26 @@
 		<input type="button" value="Sauvegarder" onClick="savequestion(document.getElementById('question_reponse'));">
 	</div>
 	<div class="button_add_Q">
-	<input type="button" value="Ajouter une question" onClick="add_question(this)" style="position: absolute;bottom: 0;">
+	<input type="button" value="Ajouter une question" onClick="addQuestion(this)" style="position: absolute;bottom: 0;">
 	</div>
-	<div class="button_add_R">
-</div>
+<div>
 	
 </footer>
 	<script type="text/javascript" >
 	
-
+	var nbquestion=0; 
 
 	function savequestion(ques){
 		console.log(ques)
 	}
 
-	function delAnswer(p){
-		var elem = document.getElementById(p);
-		var parent= elem.parentElement.parentElement		
-		console.log("Del: "+p);
-		parent.removeChild(elem.parentElement);
+	function delAnswer(idDivReponse){
+		
+	
+		var elem = document.getElementById(idDivReponse);
+		var parent= elem.parentElement;	
+		parent.removeChild(elem);
 		for(var o=1;o!=parent.children.length;o++){
-			console.log(o,parent.children[o],parent.children[o].children);
 			parent.children[o].children[0].innerHTML="Reponse "+o;
 			parent.children[o].children[1].setAttribute("name","Rinput-"+o+"-"+parent.id);
 			parent.children[o].children[2].setAttribute("name","Rbox-"+o+"-"+parent.id);
@@ -69,17 +68,11 @@
 		console.log("supression effectuée avec succée");
 	}
 
-	function addAnswer(){
-		if(!document.getElementById((document.getElementById("question_reponse").children.length-1).toString())){
-			console.log("Aucune Question rentrée");
-			alert("Aucune Question rentrée");
-			return null;
-		}
-
-		var elem=document.getElementById((document.getElementById("question_reponse").children.length-1).toString());
+	function addAnswer(e){
+		
+		var elem=document.getElementById("D"+e);
 		var id = parseInt(elem.id); 		
 		var divReponse = document.createElement("div");
-		
 		var labelNumReponse=document.createElement("label");
 		var inputReponse=document.createElement("input");
 		var inputTrueReponse=document.createElement("input");
@@ -87,37 +80,31 @@
 
 		
 		buttonDelReponse.setAttribute("type","button");
-		buttonDelReponse.setAttribute("id","D"+elem.children.length.toString());
+		buttonDelReponse.setAttribute("class","R"+e+"-"+elem.attributes.value.value);
 		buttonDelReponse.setAttribute("value","Supprimer la reponse");
-		buttonDelReponse.setAttribute("onClick","delAnswer(this.id)");
+		buttonDelReponse.setAttribute("onClick","delAnswer(this.attributes.class.value)");
 		
-		divReponse.setAttribute("id","R"+id);
+		divReponse.setAttribute("id","R"+e+"-"+elem.attributes.value.value);
 
 		labelNumReponse.innerHTML="\tReponse "+(elem.children.length);
 		inputReponse.setAttribute("placeholder","Entrez une reponse");		
-		inputReponse.setAttribute("name","Rinput-"+(elem.children.length)+"-"+id);
+		inputReponse.setAttribute("name","Rinput-"+(elem.children.length)+"-"+e);
 		inputTrueReponse.setAttribute("type","checkbox");
-		inputTrueReponse.setAttribute("name","Rbox-"+(elem.children.length)+"-"+id);
+		inputTrueReponse.setAttribute("name","Rbox-"+(elem.children.length)+"-"+e);
 		
 		divReponse.appendChild(labelNumReponse);
 		divReponse.appendChild(inputReponse);
 		divReponse.appendChild(inputTrueReponse);
 		divReponse.appendChild(buttonDelReponse);
 		elem.appendChild(divReponse);
-
-
+		elem.setAttribute("value",parseInt(elem.attributes.value.value)+1);
+		
 
 	}
 	
-	function add_question(e){
-		console.log('add question \n'+e);
+	function addQuestion(e){
+		console.log('add question \n'+e+" / "+nbquestion);
 		var divParent= document.getElementById("question_reponse");
-		console.log(document.getElementById("question_reponse").children);
-
-		// if ((divParent.children.length!=0) && (divParent.children[divParent.id-1].children.length==1)){
-		// 	alert("vous n'avez pas entre de reponse a la question précédente");
-		// 	return null;
-		// }
 		var divQuestionETReponse= document.createElement("div");
 		var divQuestion = document.createElement("div");
 
@@ -126,24 +113,25 @@
 		var buttonAddReponse = document.createElement("input");
 		
 		
-
+		buttonAddReponse.setAttribute("id",nbquestion)
 		buttonAddReponse.setAttribute("type","button");
 		buttonAddReponse.setAttribute("value","Ajouter une reponse");
-		buttonAddReponse.setAttribute("onClick","addAnswer()");
+		buttonAddReponse.setAttribute("onClick","addAnswer(this.id)");
 
-		divQuestionETReponse.setAttribute("id",divParent.children.length);
-		divQuestion.setAttribute("id","Q"+divParent.children.length);
+		divQuestionETReponse.setAttribute("id","D"+nbquestion);
+		divQuestionETReponse.setAttribute("value",0);
+		divQuestion.setAttribute("id","Q"+nbquestion);
 
-		labelNumQuestion.innerHTML= "Question "+(divParent.children.length+1); 
+		labelNumQuestion.innerHTML= "Question "+(nbquestion+1); 
 		inputQuestion.setAttribute("placeholder","Entrez une question");
-		inputQuestion.setAttribute("name","Q-"+divParent.children.length);
+		inputQuestion.setAttribute("name","Q-"+nbquestion);
 
 		divQuestion.appendChild(labelNumQuestion);
 		divQuestion.appendChild(inputQuestion);
 		divQuestion.appendChild(buttonAddReponse);
 		divQuestionETReponse.appendChild(divQuestion);	
 		divParent.appendChild(divQuestionETReponse);		
-		
+		nbquestion+=1		
 	}
 
 	</script>
