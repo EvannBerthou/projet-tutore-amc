@@ -1,4 +1,4 @@
-PREFIX=".."
+PREFIX="."
 PROJECT=$1
 
 echo Compiling $PROJECT

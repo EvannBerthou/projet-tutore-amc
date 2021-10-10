@@ -10,8 +10,8 @@ generate_output:
 	fi 
 
 	@if ! [ -d "output" ]; then \
-		mkdir -p output; \
-		mkdir -p output/cr; \
+		mkdir -p output/copies; \
+		mkdir -p output/cr/corrections/pdf; \
 		mkdir -p output/data; \
 		mkdir -p output/exports; \
 		mkdir -p output/scans; \
