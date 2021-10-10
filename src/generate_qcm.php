@@ -21,7 +21,6 @@ function ecrire_questions_fichier($fichier, $questions) {
 function creer_qcm($fichier) {
     $command = "../compile.sh $fichier";
     $escaped = escapeshellcmd($command);
-    echo $escaped;
     shell_exec($escaped);
 }
 

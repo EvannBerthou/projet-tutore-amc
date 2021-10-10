@@ -4,13 +4,16 @@ all: generate_output
 
 generate_output:
 	@if ! [ -d "questions" ]; then \
+		mkdir save; \
+	fi
+
+	@if ! [ -d "questions" ]; then \
 		mkdir questions; \
 		chgrp -R $(GROUP) questions; \
 		chmod -R g+w questions; \
 	fi 
 
 	@if ! [ -d "output" ]; then \
-		mkdir -p output/copies; \
 		mkdir -p output/cr/corrections/pdf; \
 		mkdir -p output/data; \
 		mkdir -p output/exports; \
@@ -21,4 +24,4 @@ generate_output:
 
 clean:
 	rm -dr output
-	rm *.txt
+	rm -dr save
