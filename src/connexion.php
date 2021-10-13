@@ -2,7 +2,7 @@
 
     <header>
         <title>Connexion</title>
-        <link rel="stylesheet" href="style_connexion.css">
+        <link rel="stylesheet" href="style/style_connexion.css">
     </header>
 
     <body>
