@@ -6,7 +6,7 @@
     </header>
 
     <body>
-        <form methode="post" class="div-connexion">
+        <form methode="post" action="action.php" class="div-connexion">
         
             <h1 class="titre">Connexion</h1>
             <input type="text" placeholder="Identifiant"  class="field "name="identifiant">
@@ -21,10 +21,9 @@
             <br>
             <input type="submit" class="validation-button" value="Se connecter">
 
-            <a class="link" href="mdp_foget.php"> Mot de passe oublié</a>
+    x                   
             <br>
             <br>
-            <a class="link" href="new_acompte">Crée un compte</a>
         </from>
 
 </body>
