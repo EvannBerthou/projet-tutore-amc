@@ -32,3 +32,6 @@ Pour générer un QCM depuis un fichier txt
 ```sh
 $ ./compile.sh <fichier.txt>
 ```
+
+# Maquettes
+L'ensemble des maquettes sont dispnibles [ici](maquettes/README.md)
