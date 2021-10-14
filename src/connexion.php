@@ -12,7 +12,7 @@
             <input type="text" placeholder="Identifiant"  class="field "name="identifiant">
             <br>
             <br>
-            <input type="password" placeholder="Mot de passe" class="field" name ="password">
+            <input type="password" placeholder="Mot de passe" class="field" name ="mdp">
             <br>
             <br>
             <input type="checkbox" class="stay-connected" value="Rester connecté" name="stay">
