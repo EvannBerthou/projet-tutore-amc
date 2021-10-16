@@ -1,15 +1,31 @@
 # Création d'un QCM
 
-![QCM](creation_QCM.jpg)
+![QCM](creation_qcm.jpg)
 
-# Page d'accueil
+# Page d'acceuil des utilisateurs
+ 
+![Accueil utilisateur](page_utilisateur.jpg)
 
-![Accueil](main_page.jpg)
+# Affichage des QCM utilisateur
+
+![Affichage des QCM utilisateur](qcm_utilisateur.jpg)
+
+# Page administrateur
+
+![Administration](list_utilisateur.jpg)
+
+# Affichage information utilisateur
+
+![Affichage des information utilisateur](compte_user.jpg)
 
 # Modification d'un compte par l'administrateur
 
-![Modification d'un compte](modif_compte.jpg)
+![Modification d'un compte](modif_info.jpg)i
+
+# Creation utilisateur
+
+![Creation d'un utilisateur](creation_user.jpg)
 
 # Se connecter
 
-![Se connecter](se_connecter.jpg)
+![Se connecter](connexion.jpg)
