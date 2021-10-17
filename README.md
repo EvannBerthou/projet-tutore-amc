@@ -8,6 +8,8 @@ Projet tutoré pour le S3.
 - LaTeX
 - Apache2 et PHP (Testé pour PHP8)
 - Make (Optionnel) 
+
+__Attention__ : Lors des tests, nous avons remarqués qu'AMC ne fonctionne pas avec OpenCV 4.4 !
   
 # Structure du projet
 ```
