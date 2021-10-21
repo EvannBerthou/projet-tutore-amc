@@ -6,7 +6,6 @@ generate_output:
 	@if ! [ -d "questions" ]; then \
 		mkdir save; \
 	fi
-
 	@if ! [ -d "questions" ]; then \
 		mkdir questions; \
 		chgrp -R $(GROUP) questions; \
@@ -25,3 +24,6 @@ generate_output:
 clean:
 	rm -dr output
 	rm -dr save
+
+charges:
+	pandoc --top-level-division=chapter -V geometry:margin=2cm -V fontsize=16pt -V documentclass=report --toc -o charges.pdf cahier_des_charges.md
