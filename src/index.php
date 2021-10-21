@@ -2,11 +2,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Interface Porjet Tutoré</title>
-   <script src="script.js"></script> 
+
+    <link rel='icon' type='image/svg' sizes='25x25' href='svg/logo.svg'>
+	<meta charset="UTF-8" />
+  	<meta name="viewport" content="width=device-width, initial-scale=1" />
+  	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  	<title>Interface Porjet Tutoré</title>
+   	<script src="script.js"></script> 
  </head>
 <body>
   <h2>Welcome to our totorial project</h2>

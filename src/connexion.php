@@ -1,5 +1,11 @@
 <html>
 
+    <head> 
+        <link rel='icon' type='image/svg' sizes='25x25' href='svg/logo.svg'>
+        
+    </head>
+
+
     <header>
         <title>Connexion</title>
         <link rel="stylesheet" href="style/style_connexion.css">
