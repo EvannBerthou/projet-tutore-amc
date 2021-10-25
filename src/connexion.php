@@ -2,14 +2,10 @@
 
     <head> 
         <link rel='icon' type='image/svg' sizes='25x25' href='svg/logo.svg'>
+        <title>Connexion</title>
+        <!--<link rel="stylesheet" href="style/style_connexion.css">-->
         
     </head>
-
-
-    <header>
-        <title>Connexion</title>
-        <link rel="stylesheet" href="style/style_connexion.css">
-    </header>
 
     <body>
         <form methode="post" action="action.php" class="div-connexion">
@@ -27,12 +23,11 @@
             <br>
             <input type="submit" class="validation-button" value="Se connecter">
 
-    x                   
             <br>
             <br>
-        </from>
+        </form>
 
-</body>
+    </body>
 
 
 </html>
