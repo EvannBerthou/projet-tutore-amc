@@ -40,6 +40,6 @@
 		<input type="button" value="Ajouter une question" onClick="addQuestion(this)" >
 		</div>
 	
-	</footer>
+</footer>
 </html>
 
