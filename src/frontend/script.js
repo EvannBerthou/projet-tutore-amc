@@ -74,6 +74,7 @@ function addQuestion(e){
 
     var labelNumQuestion=document.createElement("label");
     var inputQuestion = document.createElement("input");
+    var inputQuestionImg =document.createElement("input");
     var buttonAddReponse = document.createElement("input");
     var buttonDelQuestion =document.createElement("input");		
     
@@ -91,11 +92,22 @@ function addQuestion(e){
     divQuestionETReponse.setAttribute("value",0);
     divQuestion.setAttribute("id","Q-"+divParent.children.length);
 
+
     labelNumQuestion.innerHTML= "Question "+(divParent.children.length+1); 
+    inputQuestionImg.setAttribute("type","file");
+    inputQuestionImg.setAttribute("name","I-"+divParent.children.length);
+    inputQuestionImg.setAttribute("accept","image/png, image/jpeg, image/jpg, image/tiff");
+    inputQuestionImg.setAttribute("class","input_file");
+
+
+
     inputQuestion.setAttribute("placeholder","Entrez une question");
     inputQuestion.setAttribute("name","Q-"+divParent.children.length);
 
+
+
     divQuestion.appendChild(labelNumQuestion);
+    divQuestion.appendChild(inputQuestionImg);
     divQuestion.appendChild(inputQuestion);
     divQuestion.appendChild(buttonAddReponse);
     divQuestion.appendChild(buttonDelQuestion);
