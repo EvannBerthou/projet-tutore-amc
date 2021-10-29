@@ -5,7 +5,7 @@ function check_die($res) {
 }
 
 function ecrire_questions_fichier($fichier, $questions) {
-    $chemin_fichier = "../questions/$fichier";
+    $chemin_fichier = "../../questions/$fichier";
     $fp = check_die(fopen($chemin_fichier, 'w'));
     foreach ($questions as $question) {
         check_die(fwrite($fp, "* $question[0]\n"));
@@ -19,7 +19,7 @@ function ecrire_questions_fichier($fichier, $questions) {
 }
 
 function creer_qcm($fichier) {
-    $command = "../compile.sh $fichier";
+    $command = "../../compile.sh $fichier";
     $escaped = escapeshellcmd($command);
     shell_exec($escaped);
 }

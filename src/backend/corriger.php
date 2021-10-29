@@ -5,7 +5,7 @@ function sauvegarder_fichier($fichier) {
     }
 
     $nom_fichier = basename($fichier['name']);
-    $chemin_sauvegarde = "../save/" . $nom_fichier;
+    $chemin_sauvegarde = "../../save/" . $nom_fichier;
     if (!move_uploaded_file($fichier['tmp_name'], $chemin_sauvegarde)) {
         die("Erreur lors de la sauvegarde du fichier");
     }
@@ -13,7 +13,7 @@ function sauvegarder_fichier($fichier) {
 }
 
 function corriger_fichier($fichier) {
-    $command = "../correction.sh $fichier";
+    $command = "../../correction.sh $fichier";
     $escaped = escapeshellcmd($command);
     passthru($escaped);
 }

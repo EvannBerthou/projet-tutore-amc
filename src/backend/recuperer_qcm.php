@@ -16,7 +16,7 @@ if (!isset($_GET['fichier'])) {
 }
 
 $fichier = $_GET['fichier'];
-$chemin = "../output/$fichier";
+$chemin = "../../output/$fichier";
 if (!file_exists($chemin)) {
     die("Fichier non existant");
 }
