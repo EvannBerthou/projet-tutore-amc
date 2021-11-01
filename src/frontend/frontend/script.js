@@ -1,5 +1,7 @@
 // all start at 0 
 
+addQuestion();
+
 
 function delAnswer(idDivReponse){
 
@@ -66,8 +68,6 @@ function delQuestion(idDiv){
 function addQuestion(){
     var divParent= document.getElementById("question_reponse");
     nbquestion=divParent.children.length;
-
-    console.log("question nb"+nbquestion+ "added");
 
     var divQuestionETReponse= document.createElement("div");
     var divQuestion = document.createElement("div");

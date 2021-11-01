@@ -5,6 +5,7 @@
 
 	    <link rel='icon' type='image/svg' sizes='25x25' href='svg/logo.svg'>
 		<meta charset="UTF-8" />
+	  	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	  	<title>Interface Porjet Tutoré</title>
 	   	<script src="script.js"></script> 
  	</head>
@@ -31,10 +32,6 @@
 
 
 	</body>
-	<script>
-		addQuestion();
-	</script>
-		
 	<footer>
 		<div class="save_button" >
 			<input type="button" value="Sauvegarder">
