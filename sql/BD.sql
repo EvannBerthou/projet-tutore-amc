@@ -53,9 +53,11 @@ insert into users(nom,prenom,identifiant,mdp,mail) values ('bob','bob','bob','bo
 --insert qcm
 insert into qcm(titre,datee,matiere,idprof) values ("test","10/09/2001","Droit",2);
 insert into qcm(titre,datee,matiere,idprof) values ("test connaissance","09/10/2001","Droit",3);
-insert into qcm(titre,datee,matiere,idprof) values ("test resistance","10/10/2001","Droit",3);
 insert into qcm(titre,datee,matiere,idprof) values ("test de memoire","09/11/2001","Economie" ,3);
 insert into qcm(titre,datee,matiere,idprof) values ("test de competance","09/10/2001","Economie",3);
+insert into qcm(titre,datee,matiere,idprof) values ("test resistance","10/10/2001","Droit",3);
+
+
 
 --insert question
 insert into question(idqcm,question) values (2,"qui est le plus fort?");
