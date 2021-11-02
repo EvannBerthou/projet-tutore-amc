@@ -1,11 +1,11 @@
-SET FOREIGN_KEY_CHECKS=0; 
-drop table users;
-drop table qcm; 
-drop table question; 
+-- Data base de test projet AMC 
+--Author Thomas Diaconesco 
+
 drop table reponse; 
-
-
-SET FOREIGN_KEY_CHECKS=1;  
+drop table question;
+drop table qcm;
+drop table users;
+  
 create table users (
   id INT NOT NULL AUTO_INCREMENT,
   nom varchar(20),
@@ -56,7 +56,6 @@ insert into qcm(titre,datee,matiere,idprof) values ("test connaissance","09/10/2
 insert into qcm(titre,datee,matiere,idprof) values ("test de memoire","09/11/2001","Economie" ,3);
 insert into qcm(titre,datee,matiere,idprof) values ("test de competance","09/10/2001","Economie",3);
 insert into qcm(titre,datee,matiere,idprof) values ("test resistance","10/10/2001","Droit",3);
-
 
 
 --insert question
