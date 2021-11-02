@@ -33,8 +33,8 @@
 	</body>
 	<script>
 		addQuestion();
-	</script>
 		
+	</script>
 	<footer>
 		<div class="save_button" >
 			<input type="button" value="Sauvegarder">

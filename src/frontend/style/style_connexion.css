@@ -56,7 +56,7 @@ body
     background: #E1E5F2;
     border-radius: 23px;
     text-align: center;
-    background-image: url("Images/user.svg");
+    background-image: url("svg/user.svg");
     background-repeat: no-repeat;
     background-position: 10px 10px;
 }
@@ -71,7 +71,7 @@ body
     background: #E1E5F2;
     border-radius: 23px;
     text-align: center;
-    background-image: url("Images/lock.svg");
+    background-image: url("svg/lock.svg");
     background-repeat: no-repeat;
 }
 
