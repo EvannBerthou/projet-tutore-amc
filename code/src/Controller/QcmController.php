@@ -17,7 +17,9 @@ class QcmController extends AbstractController {
 
     #[Route("/generate", name: "app_generate_qcm")]
     public function generate_qcm(): Response {
-        $content = $this->qcmUtils->generate_qcm();
+        $content = $this->qcmUtils->generate_qcm(
+            "** question 1\n+ réponse 1\n- réponse 2\n\n* question 2\n- réponse 1\n+ réponse 2"
+        );
         return $this->qcmUtils->create_qcm_file_to_send("file.pdf", $content);
     }
 

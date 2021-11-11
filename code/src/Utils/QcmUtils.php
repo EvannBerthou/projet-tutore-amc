@@ -8,8 +8,8 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Response;
 
 class QcmUtils {
-    public function generate_qcm() : String {
-        $process = new Process(['sh', 'scripts/test.sh']);
+    public function generate_qcm(String $data) : String {
+        $process = new Process(['sh', 'scripts/test.sh', $data]);
         $process->run();
 
         // executes after the command finishes
