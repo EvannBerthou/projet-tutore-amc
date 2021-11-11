@@ -25,6 +25,6 @@ class QcmController extends AbstractController {
 
     #[Route("/test")]
     public function test() : Response {
-        return new Response('OK2');
+        return new Response('OK3');
     }
 }
