@@ -1,3 +1,3 @@
 #!/bin/sh
 
-cat ~/Programming/PHP/Projet/charges.pdf
+cat ../../dossiers/charges/charges.pdf
