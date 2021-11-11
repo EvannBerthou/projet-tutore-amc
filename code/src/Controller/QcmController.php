@@ -9,7 +9,6 @@ use App\Utils\QcmUtils;
 
 #[Route("/qcm")]
 class QcmController extends AbstractController {
-    /*
     private $qcmUtils;
 
     public function __construct(QcmUtils $qcmUtils) {
@@ -21,10 +20,9 @@ class QcmController extends AbstractController {
         $content = $this->qcmUtils->generate_qcm();
         return $this->qcmUtils->create_qcm_file_to_send("file.pdf", $content);
     }
-    */
 
     #[Route("/test")]
     public function test() : Response {
-        return new Response('OK3');
+        return $this->render('generate_qcm.html.twig');
     }
 }
