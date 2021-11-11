@@ -7,6 +7,7 @@ Projet tutoré pour le S3.
 - AMC 
 - LaTeX
 - Apache2 et PHP (Testé pour PHP8)
+- Symfony
 - Make (Optionnel) 
 
 __Attention__ : Lors des tests, nous avons remarqués qu'AMC ne fonctionne pas avec OpenCV 4.4 !
@@ -14,25 +15,10 @@ __Attention__ : Lors des tests, nous avons remarqués qu'AMC ne fonctionne pas a
 # Structure du projet
 ```
 .
-├── output          # Dossier où tous les fichiers sont générés par AMC
-├── questions       # Dossier contenant les questions
-├── src             # Code source du programme
+├── code            # Code du projet (Projet Symfony)
+├── dossiers        # L'ensemble des dossiers et documents (cahier des charges, dossier de conception, ...)
+├── maquettes       # Maquettes du l'interface du site
 ├── README.md       # Ce fichier
-├── compile.sh      # Script servant de wrapper à AMC
-└── Makefile        # Makefile générant la structure du projet 
-```
-
-# Préparation
-Premièrement, il faut gérer la structure du projet ainsi qu'appliquer les permissions nécessaires.
-Toute cette partie a été automatisée dans un Makefile mais son utilisation n'est pas obligatoire.
-```sh
-$ make
-```
-
-# Utilisation
-Pour générer un QCM depuis un fichier txt
-```sh
-$ ./compile.sh <fichier.txt>
 ```
 
 # Maquettes
