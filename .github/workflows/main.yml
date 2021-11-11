@@ -27,3 +27,6 @@ jobs:
 
       - name: Composer
         run: ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOSTNAME }} 'cd /var/www/projet/code && composer install'
+
+      - name: Groupe
+        run: ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOSTNAME }} 'cd /var/www/projet/code && chgrp -R www-data public && chmod g+w www-data'
