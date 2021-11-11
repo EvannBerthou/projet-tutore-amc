@@ -23,7 +23,7 @@ class QcmController extends AbstractController {
         return $this->qcmUtils->create_qcm_file_to_send("file.pdf", $content);
     }
 
-    #[Route("/test")]
+    #[Route("/test", name:"app_generate_qcm_test")]
     public function test() : Response {
         return $this->render('generate_qcm.html.twig');
     }
