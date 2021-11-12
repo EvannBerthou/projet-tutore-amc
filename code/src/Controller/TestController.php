@@ -15,7 +15,7 @@ class TestController extends AbstractController{
         return $this -> render("page_utilisateur.html.twig",['user_name'=>$this->name]);
 }
     
-    #[Route("/connexion")]
+    #[Route("/connexion", name: "connexion" )]
     public function connexion(): Response
     {
         return $this -> render("connexion.html.twig");
