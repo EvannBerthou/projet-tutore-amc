@@ -1,0 +1,12 @@
+{% block menu %}    
+<div class='logo_user'>
+        <span class='hello_user'>Bienvenue {{user_name}}</span>
+        <button class"buttonmenuprincipal"> <img src='svg/user.svg' width='40' heigth='45'>
+    <div class="dropdown-child"> 
+         <a href="{{ absolute_url('/creation_qcm')}}">Creé un QCM</a>
+         <a href="{{ absolute_url('/correction_qcm')}}">Corriger un QCM</a>
+         <a href="{{ absolute_url('/parametre')}}">Paramètres</a>
+         <a href="{{ absolute_url('/deconnexion')}}">Déconnexion</a>       
+    </div>
+</div>
+{% endblock %}

@@ -1,8 +1,34 @@
 <!DOCTYPE html>
 <html>
     <head>
+
+        {% block meta %}
+        <!--META-->
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="author" content="BETA">
+        <meta name="description" content="Se connecter à l'application BETA">
+        {% endblock %} 
+        
+        {% block style %}
+         <!--CSS-->
+        <link href="../style/style.css" rel="stylesheet" type="text/css">
+        {% endblock %} 
+
+        {% block favicon %}
+         <!--FAVICON-->
+        <link rel="icon" href="svg/favicon.ico" />
+        {% endblock %}
+
+        {% block font %}
+        <!--FONTS-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+        {% endblock %}      
+
+        <link rel='stylesheet' href='style/style_user.css'>
+        <link rel='icon' type='image/svg' sizes='25x25' href='../svg/logo.svg'>
+
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
@@ -14,6 +40,6 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block main %}{% endblock %}
     </body>
 </html>

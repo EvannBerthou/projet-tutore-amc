@@ -1,0 +1,46 @@
+{% extends 'base.html.twig'%}
+
+{% block title %}
+        <!--TITLE-->
+        <title>Se connecter</title>
+{% endblock %}
+
+{% block main %}
+       <!--JS-->        
+        <div class="container">
+
+            <div class="titre">
+            Se connecter
+            </div>
+
+            <form methode="post" action="" class="div-connexion">
+
+                <div class="user_box">
+                <img src="../svg/user2.svg" class="icon">
+                <input type="email" size="30"name="identifiant" placeholder="Adresse mail" required>
+                </div>
+
+                <div class="user_box">
+                <img src="../svg/user3.svg" class="icon">
+                <input type="password" size="30" name="mdp" placeholder="Mot de passe" required>
+                </div>
+
+                <div class="stay_connected">
+                <input type="checkbox" value="Rester connecté" name="stay">
+                <span>Se souvenir de moi</span>
+                <a href="#" class="forgot_pwd">Mot de passe oublié</a>
+                </div>
+
+                <div class="validation_button">
+                <input type="submit" value="Se connecter">
+                </div>
+
+            </form>
+
+        </div>
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,349 @@
+:root 
+{
+    --dark: #022B3A;
+    --middle: #1F7A8C;
+    --light: #E1E5F2;
+}
+
+html
+{
+    height: 100%;
+}
+
+body
+{
+    background-color: var(--light);
+    font-family: 'Roboto', sans-serif;
+    font-size: 100%;
+}
+
+
+/****************** CONNEXION ***************************/
+.container
+{
+    background-color: var(--dark);
+    border-radius: 23px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.titre
+{
+    text-align: center;
+    font-size: larger;
+    color: var(--light);
+    padding: 5% 0 5% 0;
+}
+
+.user_box
+{
+    text-align: center;
+}
+
+.stay_connected
+{
+    color: var(--light);
+    padding-left: 20%;
+}
+
+.container .user_box
+{
+    position: relative;
+}
+
+.container .user_box input[type=email]
+{
+    width: 60%;
+    padding: 10px 0;
+    font-size: medium;
+    margin-bottom: 30px;
+    border: none;
+    background: var(--light);
+    border-radius: 23px;
+    text-align: center;
+    background-image: url("../svg/user.svg");
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+}
+
+.container .user_box input[type=password]
+{
+    width: 60%;
+    padding: 10px 0;
+    font-size: medium;
+    margin-bottom: 30px;
+    border: none;
+    background: var(--light);
+    border-radius: 23px;
+    text-align: center;
+    background-image: url("../svg/lock.svg");
+    background-repeat: no-repeat;
+}
+
+.icon
+{
+    width: 4%;
+    opacity: 0;
+}
+
+a
+{
+    text-decoration: none;
+    color: var(--light);
+}
+
+a:hover
+{
+    color: var(--middle);
+    transition: 0.5s;
+}
+
+.forgot_pwd
+{
+    font-style: italic;
+    margin: 20%;
+}
+
+.validation_button
+{
+    text-align: center;
+}
+
+.validation_button input
+{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-size: medium;
+    background-color: var(--middle);
+    border: none;
+    border-radius: 23px;
+    padding: 2%;
+    color: var(--light);
+}
+
+.validation_button input:hover
+{
+    background-color: var(--light);
+    color: var(--middle);
+    transition: .5s;
+}
+
+
+/************************* CREATION QCM *******************/
+h2
+{
+    color: var(--dark);
+    margin: 2%;
+}
+
+
+/************* Menu deroulant **********/
+.boutonmenuprincipal 
+{
+    color: var(--dark);
+    border: none;
+    cursor: pointer;
+    font-size: medium;
+    background-color: var(--dark);
+    border-radius: 50%;
+    padding: 15px;
+}
+
+.dropdown 
+{
+    position: fixed;
+    display: block;
+    margin-left: 85%;
+}
+
+.dropdown span
+{
+    color: var(--dark);
+}
+
+.dropdown-child 
+{
+    display: none;
+    background-color:var(--dark);
+    color: var(--light);
+    min-width: 50px;
+    border-radius: 23px;
+}
+
+.dropdown-child a 
+{
+    color: var(--light);
+    padding: 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-child 
+{
+    display: block;
+}
+
+.dropdown-child a:hover
+{
+    color: var(--middle);
+}
+
+
+/************* Gestion des questions **********/
+.titreQCM
+{
+    color: var(--dark);
+    font-size: large;
+}
+
+.title input
+{
+    box-sizing: border-box;
+    border: 2px solid #80B0BF;
+    background-color: var(--light);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    border-radius: 23px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.title input:focus
+{
+    border: 2px solid var(--dark);
+}
+
+.title
+{
+    margin: 5%;
+}
+
+#question_reponse
+{
+    border-radius: 23px;
+    padding: 15px;
+    width: 100%;
+    color: var(--light);
+    margin-top: 10px;
+    text-align: center;
+    grid-column: 1/2;
+}
+
+.question
+{
+    background-color: var(--dark);
+    border-radius: 23px;
+    padding: 15px;
+    width: 90%;
+    color: var(--light);
+    margin-top: 10px;
+    text-align: center;
+    grid-column: 1/2;
+    margin-bottom: 25px;
+}
+
+#question_reponse input[type=button]
+{
+    text-align: center;
+    border-radius: 23px;
+    background-color: var(--middle);
+    color: var(--light);
+    border: none;
+    padding: 5px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#question_reponse input[type=file]
+{
+    position: relative;
+    float: right;
+}
+
+#question_reponse input[type=text]
+{
+    box-sizing: border-box;
+    border: none;
+    background-color: var(--dark);
+    padding: 5px;
+    color: var(--light);
+    outline: none;
+    font-size: medium;
+}
+
+.text_reponse
+{
+    margin: 5px;
+    border: none;
+    background-color: var(--dark);
+    color: var(--light);
+    outline: none;
+}
+
+.grid
+{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: auto;
+}
+
+.submitbutton
+{
+    grid-column: 2/2;
+    grid-row: 2/2;
+}
+
+.button_add_Q 
+{
+    grid-column: 2/2;
+    grid-row: 2/2;
+}
+
+.button_save
+{
+    grid-column: 2/2;
+    grid-row: 2/2;
+}
+
+.button_add_Q input
+{
+    border: none;
+    width: 160px;
+    padding: 15px;
+    border-radius: 23px;
+    background-color: var(--middle);
+    color: var(--light);
+    position: fixed;
+    cursor: pointer;
+}
+
+.button_save input
+{
+    border: none;
+    width: 160px;
+    padding: 15px;
+    border-radius: 23px;
+    background-color: var(--middle);
+    color: var(--light);
+    position: fixed;
+    cursor: pointer;
+    margin-top: 60px;
+}
+
+.submitbutton input
+{
+    border: none;
+    width: 160px;
+    padding: 15px;
+    border-radius: 23px;
+    background-color: var(--middle);
+    color: var(--light);
+    position: fixed;
+    margin-top: 120px;
+    cursor: pointer;
+}
