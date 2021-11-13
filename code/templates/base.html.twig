@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title> {% block title %} BETA {% endblock %} </title>
 
         {% block meta %}
         <!--META-->
@@ -26,7 +27,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
         {% endblock %}      
 
-        <link rel='stylesheet' href='style/style_user.css'>
         <link rel='icon' type='image/svg' sizes='25x25' href='svg/logo.svg'>
 
         {# Run `composer require symfony/webpack-encore-bundle`
