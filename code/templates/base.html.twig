@@ -1,44 +1,30 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> {% block title %} BETA {% endblock %} </title>
+        <title>{% block title %}BETA{% endblock %}</title>
 
         {% block meta %}
-        <!--META-->
         <meta charset="UTF-8">
         <meta name="author" content="BETA">
         <meta name="description" content="Se connecter à l'application BETA">
         {% endblock %} 
         
         {% block style %}
-         <!--CSS-->
         <link href="style/style.css" rel="stylesheet" type="text/css">
         {% endblock %} 
 
         {% block favicon %}
-         <!--FAVICON-->
         <link rel="icon" href="svg/favicon.ico" />
         {% endblock %}
 
+        <!-- Télécharger la font pour moins de traffic extérieur -->
         {% block font %}
-        <!--FONTS-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
         {% endblock %}      
-
-        <link rel='icon' type='image/svg' sizes='25x25' href='svg/logo.svg'>
-
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
-
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
     </head>
+
     <body>
         {% block main %}{% endblock %}
     </body>

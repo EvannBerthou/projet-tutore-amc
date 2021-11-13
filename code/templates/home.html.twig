@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ parent() }} -
-    Accueil
+    {{ parent() }} - Accueil
 {% endblock %}
 
 {% block main %}
     <h1> Liste des pages disponibles </h1>
     <ul>
          <li><a href="{{path('app_generate_qcm_test')}}"> Générerer QCM </a></li>
-         <li><a href="{{path('connexion')}}"> Connexion </a></li>
+         <li><a href="{{path('app_connexion')}}"> Connexion </a></li>
+         <li><a href="{{path('app_page_utilisateur')}}"> Page utilisateur </a></li>
     </ul>
 {% endblock %}

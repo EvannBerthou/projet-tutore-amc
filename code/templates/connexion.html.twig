@@ -1,8 +1,12 @@
 {% extends 'base.html.twig'%}
 
 {% block title %}
-    {{ parent() }} -
-    Se connecter
+    {{ parent() }} - Se connecter
+{% endblock %}
+
+{% block style %}  
+    {{ parent() }}
+    <link href="style/connexion.css" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block main %}

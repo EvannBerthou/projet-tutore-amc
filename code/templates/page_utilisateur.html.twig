@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
-  {% block main %} 
+{% block title %}{{ parent() }} - Page utilisateur{% endblock %}
+
+{% block main %} 
   <h1 class='mes_qcm'>Mes QCM</h1>
         {{ block("menu", "menu.html.twig")}}
 {% endblock %}

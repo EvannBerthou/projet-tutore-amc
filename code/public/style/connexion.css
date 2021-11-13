@@ -1,0 +1,114 @@
+.container
+{
+    background-color: var(--dark);
+    border-radius: 23px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    margin: auto;
+}
+
+.titre
+{
+    text-align: center;
+    font-size: larger;
+    color: var(--light);
+    padding: 5% 0 5% 0;
+}
+
+.user_box
+{
+    text-align: center;
+}
+
+.stay_connected
+{
+    color: var(--light);
+    padding-left: 20%;
+}
+
+.container .user_box
+{
+    position: relative;
+}
+
+.container .user_box input[type=email]
+{
+    width: 60%;
+    padding: 10px 0;
+    font-size: medium;
+    margin-bottom: 30px;
+    border: none;
+    background: var(--light);
+    border-radius: 23px;
+    text-align: center;
+    background-image: url("../svg/user.svg");
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+}
+
+.container .user_box input[type=password]
+{
+    width: 60%;
+    padding: 10px 0;
+    font-size: medium;
+    margin-bottom: 30px;
+    border: none;
+    background: var(--light);
+    border-radius: 23px;
+    text-align: center;
+    background-image: url("../svg/lock.svg");
+    background-repeat: no-repeat;
+}
+
+.icon
+{
+    width: 4%;
+    opacity: 0;
+}
+/*
+a
+{
+    text-decoration: none;
+    color: var(--light);
+}
+
+a:hover
+{
+    color: var(--middle);
+    transition: 0.5s;
+}
+*/
+.forgot_pwd
+{
+    font-style: italic;
+    margin: 20%;
+}
+
+.validation_button
+{
+    text-align: center;
+}
+
+.validation_button input
+{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-size: medium;
+    background-color: var(--middle);
+    border: none;
+    border-radius: 23px;
+    padding: 2%;
+    color: var(--light);
+}
+
+.validation_button input:hover
+{
+    background-color: var(--light);
+    color: var(--middle);
+    transition: .5s;
+}
+
+
