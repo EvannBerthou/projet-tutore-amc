@@ -14,15 +14,15 @@ class AdminController extends AbstractController {
         return $response->setContent("Utilisateurs");
     }
 
-    #[Route("/utilisateurs/nouveau", name: "app_admin_front_new_uesr")]
+    #[Route("/utilisateurs/nouveau", name: "app_admin_front_new_user")]
     public function new_user(): Response {
         $response = new Response();
         return $response->setContent("Nouveau utilisateur");
     }
 
-    #[Route("/utilisateurs/{id}", name: "app_admin_front_user")]
-    public function user_profile(int $id): Response {
+    #[Route("/utilisateurs", name: "app_admin_front_user")]
+    public function user_profile(): Response {
         $response = new Response();
-        return $response->setContent("Utilisateur " . $id);
+        return $response->setContent("Profil Utilisateur ");
     }
 }
