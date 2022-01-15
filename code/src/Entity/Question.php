@@ -21,6 +21,25 @@ class Question {
     #[ORM\ManyToOne(targetEntity: QCM::class, inversedBy: "questions")]
     private $qcm;
 
+    #[ORM\Column(name: "type", type: "string", length: 255, nullable: false)]
+    private $type;
+
+    #[ORM\OneToOne(targetEntity: "QuestionOptions")]
+    private $options;
+
+    #[ORM\OneToOne(targetEntity: "QuestionImage")]
+    #[ORM\JoinColumn(nullable: true)]
+    private $image;
+
+    public function setType($type) {
+        if (!in_array($type, QuestionTypeEnum::getAvailableTypes())) {
+            throw new \InvalidArgumentException("Type invalide");
+        }
+
+        $this->type = $type;
+        return $this;
+    }
+
     public function getId(): ?int {
         return $this->id;
     }
