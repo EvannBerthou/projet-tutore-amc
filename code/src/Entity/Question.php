@@ -3,13 +3,10 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\QuestionRepository;
 
-// TODO: Ajouter le repository
-//#[ORM\Entity(repositoryClass=ProductRepository::class)]
-//
-#[ORM\Entity()]
+#[ORM\Entity(repositoryClass: QuestionRepository::class)]
 class Question {
-
     #[ORM\Id()]
     #[ORM\GeneratedValue()]
     #[ORM\Column(type: "integer")]
@@ -18,7 +15,7 @@ class Question {
     #[ORM\Column(type: "string", length: 255)]
     private $enonce;
 
-    #[ORM\ManyToOne(targetEntity: QCM::class, inversedBy: "questions")]
+    #[ORM\ManyToOne(targetEntity: Reponse::class, inversedBy: "questions")]
     private $qcm;
 
     #[ORM\Column(name: "type", type: "string", length: 255, nullable: false)]

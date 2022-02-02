@@ -4,8 +4,9 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\boolean;
+use App\Repository\QuestionOptionsRepository;
 
-#[ORM\Entity()]
+#[ORM\Entity(repositoryClass: QuestionOptionsRepository::class)]
 class QuestionOptions {
     #[ORM\Id()]
     #[ORM\GeneratedValue()]

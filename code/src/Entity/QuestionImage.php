@@ -3,8 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\QuestionImageRepository;
 
-#[ORM\Entity()]
+#[ORM\Entity(repositoryClass: QuestionImageRepository::class)]
 class QuestionImage {
     #[ORM\Id()]
     #[ORM\GeneratedValue()]

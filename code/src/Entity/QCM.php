@@ -3,12 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\QCMRepository;
 
-// TODO: Ajouter le repository
-//#[ORM\Entity(repositoryClass=ProductRepository::class)]
-//
-//
-#[ORM\Entity()]
+#[ORM\Entity(repositoryClass: QCMRepository::class)]
 class QCM {
     #[ORM\Id()]
     #[ORM\GeneratedValue()]

@@ -3,11 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\ReponseRepository;
 
-// TODO: Ajouter le repository
-//#[ORM\Entity(repositoryClass=ProductRepository::class)]
-//
-#[ORM\Entity()]
+#[ORM\Entity(repositoryClass: ReponseRepository::class)]
 class Reponse {
     #[ORM\Id()]
     #[ORM\GeneratedValue()]
