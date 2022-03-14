@@ -21,7 +21,7 @@ class QcmFrontController extends AbstractController {
     #[Route("/modif_qcm", name:"app_qcm_front_update")]
     public function update_qcm(): Response {
         $response = new Response();
-        return $response->setContent("Modif QCM");
+        return $this->render("modif_qcm.html.twig");
     }
 
 
