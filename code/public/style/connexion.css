@@ -68,11 +68,12 @@
     width: 4%;
     opacity: 0;
 }
-/*
+
 a
 {
     text-decoration: none;
     color: var(--light);
+    font-size: small;
 }
 
 a:hover
@@ -80,7 +81,7 @@ a:hover
     color: var(--middle);
     transition: 0.5s;
 }
-*/
+
 .forgot_pwd
 {
     font-style: italic;
@@ -102,6 +103,7 @@ a:hover
     border-radius: 23px;
     padding: 2%;
     color: var(--light);
+    cursor: pointer;
 }
 
 .validation_button input:hover

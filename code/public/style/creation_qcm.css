@@ -1,5 +1,166 @@
-h2
+.titreQCM
 {
     color: var(--dark);
-    margin: 2%;
+    font-size: large;
+}
+
+.title input
+{
+    box-sizing: border-box;
+    border: 2px solid #80B0BF;
+    background-color: var(--light);
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+    border-radius: 23px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.title input:focus
+{
+    border: 2px solid var(--dark);
+}
+
+.title
+{
+    margin: 5%;
+}
+
+#question_reponse
+{
+    border-radius: 23px;
+    padding: 15px;
+    width: 100%;
+    color: var(--light);
+    margin-top: 10px;
+    text-align: center;
+    grid-column: 1/2;
+}
+
+.question
+{
+    background-color: var(--dark);
+    border-radius: 23px;
+    padding: 15px;
+    width: 90%;
+    color: var(--light);
+    margin-top: 10px;
+    text-align: center;
+    grid-column: 1/2;
+    margin-bottom: 25px;
+}
+
+#question_reponse input[type=button]
+{
+    text-align: center;
+    border-radius: 23px;
+    background-color: var(--middle);
+    color: var(--light);
+    border: none;
+    padding: 5px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#question_reponse input[type=file]
+{
+    position: relative;
+    float: right;
+}
+
+#question_reponse input[type=text]
+{
+    box-sizing: border-box;
+    border: none;
+    background-color: var(--dark);
+    padding: 5px;
+    color: var(--light);
+    outline: none;
+    font-size: medium;
+}
+
+.text_reponse
+{
+    margin: 5px;
+    border: none;
+    background-color: var(--dark);
+    color: var(--light);
+    outline: none;
+}
+
+.grid
+{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: auto;
+}
+
+.submitbutton, .button_visu
+{
+    grid-column: 2/2;
+    grid-row: 2/2;
+}
+
+.button_add_Q
+{
+    grid-column: 2/2;
+    grid-row: 2/2;
+}
+
+.button_save
+{
+    grid-column: 2/2;
+    grid-row: 2/2;
+}
+
+.button_add_Q input
+{
+    border: none;
+    width: 160px;
+    padding: 15px;
+    border-radius: 23px;
+    background-color: var(--middle);
+    color: var(--light);
+    position: fixed;
+    cursor: pointer;
+}
+
+.button_save input
+{
+    border: none;
+    width: 160px;
+    padding: 15px;
+    border-radius: 23px;
+    background-color: var(--middle);
+    color: var(--light);
+    position: fixed;
+    cursor: pointer;
+    margin-top: 60px;
+}
+
+.button_visu input
+{
+    border: none;
+    width: 160px;
+    padding: 15px;
+    border-radius: 23px;
+    background-color: var(--middle);
+    color: var(--light);
+    position: fixed;
+    margin-top: 120px;
+    cursor: pointer;
+}
+
+.submitbutton input
+{
+    border: none;
+    width: 160px;
+    padding: 15px;
+    border-radius: 23px;
+    background-color: var(--middle);
+    color: var(--light);
+    position: fixed;
+    margin-top: 180px;
+    cursor: pointer;
 }
