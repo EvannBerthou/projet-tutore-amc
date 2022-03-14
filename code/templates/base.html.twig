@@ -10,11 +10,11 @@
         {% endblock %} 
         
         {% block style %}
-        <link href="style/style.css" rel="stylesheet" type="text/css">
+        <link href="{{ asset('style/style.css') }}" rel="stylesheet" type="text/css">
         {% endblock %} 
 
         {% block favicon %}
-        <link rel="icon" href="/svg/favicon.ico" />
+        <link rel="icon" href="{{ asset('svg/favicon.ico') }}" />
         {% endblock %}
 
         <!-- Télécharger la font pour moins de traffic extérieur -->
