@@ -9,6 +9,12 @@
     font-size: larger;
     align-content: center;
     align-items: center;
+    transition: 0.2s;
+}
+
+.bloc :hover
+{
+    transform: scale(1.2);
 }
 
 .bloc1
@@ -18,6 +24,11 @@
     padding: 2em;
     border-radius: 23px;
     text-align: center;
+}
+
+.bloc1 :hover
+{
+    transform: none;
 }
 
 .bloc2
@@ -30,6 +41,11 @@
     text-align: center;
 }
 
+.bloc2 :hover
+{
+    transform: none;
+}
+
 .bloc3
 {
     grid-area: 4 / 2 / 5 / 4;
@@ -38,6 +54,11 @@
     padding: 2em;
     border-radius: 23px;
     text-align: center;
+}
+
+.bloc3 :hover
+{
+    transform: none;
 }
 
 a
