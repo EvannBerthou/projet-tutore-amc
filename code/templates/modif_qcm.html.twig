@@ -12,17 +12,7 @@
 {% block main %}
 
     {% block nav %}
-        <div class="dropdown">
-            <span>Bienvenue</span>
-            <button class="boutonmenuprincipal"><img src="{{ asset('svg/user.svg') }}"></button>
-            <div class="dropdown-child">
-                <a>Mes QCM </a>
-                <a>Créer un QCM</a>
-                <a>Paramètres</a>
-                <a>Corriger un QCM</a>
-                <a>Déconnexion</a>
-            </div>
-        </div>
+       {% include 'menu.html.twig' %}
     {% endblock %}
 
     <!--CREATION QCM-->
