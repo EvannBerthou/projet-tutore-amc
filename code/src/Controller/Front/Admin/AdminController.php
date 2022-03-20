@@ -14,12 +14,6 @@ class AdminController extends AbstractController {
         return $response->setContent("Utilisateurs");
     }
 
-    #[Route("/accueil-utilisateur", name: "app_home_front_user")]
-    public function user(): Response {
-        $response = new Response();
-        return $this->render("accueil_utilisateur.html.twig");
-    }
-
     #[Route("/utilisateurs/nouveau", name: "app_admin_front_new_user")]
     public function new_user(): Response {
         $response = new Response();
