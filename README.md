@@ -24,3 +24,9 @@ __Attention__ : Lors des tests, nous avons remarqués qu'AMC ne fonctionne pas a
 
 # Maquettes
 L'ensemble des maquettes sont dispnibles [ici](maquettes/README.md)
+
+# Installation
+Plusieurs manipulations on dû être faite pour que le déploiement avec GitHub action se fasse automatiquement.
+
+- Gérer les groupes sur dossier /var/www/projet
+- Activer mod\_rewrite : "# a2enmod rewrite" -> Pour ne pas avoir à mettre le index.php dans l'URL
