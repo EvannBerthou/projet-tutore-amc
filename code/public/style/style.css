@@ -65,7 +65,8 @@ body
 
 .dropdown-child a:hover
 {
-    color: var(--middle);
+    background-color: var(--light);
+    color: var(--dark);
     cursor: pointer;
 }
 
