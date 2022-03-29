@@ -17,12 +17,12 @@ class AdminController extends AbstractController {
     #[Route("/utilisateurs/nouveau", name: "app_admin_front_new_user")]
     public function new_user(): Response {
         $response = new Response();
-        return $response->setContent("Nouveau utilisateur");
+        return $this->render("creation_utilisateur.html.twig");
     }
 
-    #[Route("/utilisateurs", name: "app_admin_front_user")]
+    #[Route("/utilisateurs/modif", name: "app_admin_front_user")]
     public function user_profile(): Response {
         $response = new Response();
-        return $response->setContent("Profil Utilisateur ");
+        return $this->render("modif_utilisateur.html.twig ");
     }
 }

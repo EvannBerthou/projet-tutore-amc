@@ -1,0 +1,27 @@
+{% extends 'base.html.twig'%}
+
+{% block title %}
+    {{ parent() }} - Création d'un utilisateur
+{% endblock %}
+
+{% block style %}
+    {{ parent() }}
+    <link href="{{ asset('style/creation_modif_utilisateur.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block main %}
+    <nav>
+        {% block nav %}
+            {% include 'menu.html.twig' %}
+        {% endblock %}
+    </nav>
+
+    <main>
+        <div class="bloc">
+            <a href="qcm/modif_qcm" class="bloc1"><div>Créer un QCM</div></a>
+            <a href="qcm/mes_qcm" class="bloc2"><div>Accéder à mes QCM</div></a>
+            <a href="qcm/correction_qcm" class="bloc3"><div>Corriger un QCM</div></a>
+        </div>
+    </main>
+
+{% endblock %}
