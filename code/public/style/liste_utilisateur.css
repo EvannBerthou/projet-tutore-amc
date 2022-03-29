@@ -1,0 +1,53 @@
+.titre
+{
+    color: var(--dark);
+    padding: 5em;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.sous_titre {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    text-align: center;
+    color: var(--light);
+}
+
+.nom
+{
+    grid-area: 1 / 1 / 2 / 2;
+    background-color: var(--dark);
+    border-radius: 23px;
+    padding: 1em;
+    margin: 1em;
+}
+
+.prenom
+{
+    grid-area: 1 / 2 / 2 / 3;
+    background-color: var(--dark);
+    border-radius: 23px;
+    padding: 1em;
+    margin: 1em;
+}
+
+.mail
+{
+    grid-area: 1 / 3 / 2 / 4;
+    background-color: var(--dark);
+    border-radius: 23px;
+    padding: 1em;
+    margin: 1em;
+}
+
+.action
+{
+    grid-area: 1 / 4 / 2 / 5;
+    background-color: var(--dark);
+    border-radius: 23px;
+    padding: 1em;
+    margin: 1em;
+}
