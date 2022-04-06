@@ -65,7 +65,10 @@ body
 
 .dropdown-child a:hover
 {
-    color: var(--middle);
+    background-color: var(--light);
+    color: var(--dark);
     cursor: pointer;
+    border: 1px solid var(--dark);
+    border-radius: 23px;
 }
 

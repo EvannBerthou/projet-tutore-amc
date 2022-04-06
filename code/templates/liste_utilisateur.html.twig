@@ -1,0 +1,39 @@
+{% extends 'base.html.twig'%}
+
+{% block title %}
+    {{ parent() }} - Liste des utilisateurs
+{% endblock %}
+
+{% block style %}
+    {{ parent() }}
+    <link href="{{ asset('style/liste_utilisateur.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block main %}
+    <nav>
+        {% block nav %}
+            {% include 'menu.html.twig' %}
+        {% endblock %}
+    </nav>
+
+    <main>
+        <div class="titre">
+            Liste de utilisateurs
+        </div>
+        <div class="sous_titre">
+            <div class="nom">
+                Nom
+            </div>
+            <div class="prenom">
+                Prénom
+            </div>
+            <div class="mail">
+                Mail
+            </div>
+            <div class="action">
+                Action
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

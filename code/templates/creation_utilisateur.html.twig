@@ -1,0 +1,60 @@
+{% extends 'base.html.twig'%}
+
+{% block title %}
+    {{ parent() }} - Création d'un utilisateur
+{% endblock %}
+
+{% block style %}
+    {{ parent() }}
+    <link href="{{ asset('style/creation_modif_utilisateur.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block main %}
+    <nav>
+        {% block nav %}
+            {% include 'menu.html.twig' %}
+        {% endblock %}
+    </nav>
+
+    <main>
+        <div class="titre">
+            Création d'un nouvel utilisateur
+        </div>
+        <div class="container">
+
+            <form>
+                <div class="user_box">
+                    <span>Adresse mail</span>
+                    <input type="email" size="30" name="mail" placeholder="Adresse mail" required>
+                </div>
+
+                <div class="user_box">
+                    <span>Nom</span>
+                    <input type="text" size="30" name="nom" placeholder="Nom" required>
+                </div>
+
+                <div class="user_box">
+                    <span>Prénom</span>
+                    <input type="text" size="30" name="prenom" placeholder="Prénom" required>
+                </div>
+
+                <div class="user_box">
+                    <span>Mot de passe</span>
+                    <input type="password" size="30" name="mdp" placeholder="Mot de passe" required>
+                </div>
+
+                <div class="user_box">
+                    <span class="span">Confirmer le mot de passe</span>
+                    <input type="password" size="30" name="mdp" placeholder="Confirmer le mot de passe" required>
+                </div>
+
+                <div class="validation_button">
+                    <input type="submit" value="VALIDER">
+                    <a href="#">Annuler</a>
+                </div>
+            </form>
+
+        </div>
+    </main>
+
+{% endblock %}
