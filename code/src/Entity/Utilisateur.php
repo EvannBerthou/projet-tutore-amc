@@ -9,7 +9,6 @@ use App\Entity\UserRepository;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface {
-    
     #[ORM\Id()]
     #[ORM\GeneratedValue()]
     #[ORM\Column(type: "integer")]
