@@ -34,6 +34,18 @@
                 Action
             </div>
         </div>
+        
+        <ul> 
+        {% for user in users %}
+            <li> 
+                <div> 
+                    {{ user.getNom() }} 
+                    {{ user.getPrenom() }} 
+                    {{ user.getEmail() }} 
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
     </main>
 
 {% endblock %}
