@@ -21,7 +21,10 @@ jobs:
       
       - name: Adding Known Hosts
         run: ssh-keyscan -H ${{ secrets.SSH_HOSTNAME }} >> ~/.ssh/known_hosts  
-        
+      
+      - name: Clear cache
+        run: ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOSTNAME }} '[ -d "/var/www/projet" ] && php app/console cache:clear'
+
       - name: Deploy to sandbox via rsync
         run: rsync --delete -avz ./ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOSTNAME }}:/var/www/projet
 
