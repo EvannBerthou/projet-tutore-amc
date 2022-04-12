@@ -17,6 +17,12 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface {
     #[ORM\Column(type: "string", length: 180, unique: true)]
     private $email;
 
+    #[ORM\Column(type: "string", length: 50, unique: false)]
+    public $nom;
+
+    #[ORM\Column(type: "string", length: 50, unique: false)]
+    public $prenom;
+
     #[ORM\Column(type: "json")]
     private $roles = [];
 
