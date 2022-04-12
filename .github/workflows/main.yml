@@ -23,7 +23,7 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.SSH_HOSTNAME }} >> ~/.ssh/known_hosts  
       
       - name: Deploy to sandbox via rsync
-        run: '(rsync --delete -avz ./ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOSTNAME }}:/var/www/projet || true)'
+        run: rsync --delete -avz ./ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOSTNAME }}:/var/www/projet
 
       - name: Composer
         run: ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOSTNAME }} 'cd /var/www/projet/code && composer install'
