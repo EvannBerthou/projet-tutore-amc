@@ -17,10 +17,10 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface {
     #[ORM\Column(type: "string", length: 180, unique: true)]
     private $email;
 
-    #[ORM\Column(type: "string", length: 50, unique: false)]
+    #[ORM\Column(type: "string", length: 50, unique: false, nullable=true)]
     public $nom;
 
-    #[ORM\Column(type: "string", length: 50, unique: false)]
+    #[ORM\Column(type: "string", length: 50, unique: false, nullable=true)]
     public $prenom;
 
     #[ORM\Column(type: "json")]
