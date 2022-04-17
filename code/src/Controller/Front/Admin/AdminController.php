@@ -6,13 +6,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Service\UserService;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 #[Route("/admin")]
+#[IsGranted("ROLE_ADMIN")]
 class AdminController extends AbstractController {
     #[Route("/utilisateurs", name: "app_admin_front_users")]
     public function users(UserService $userService): Response {
         $users = $userService->getAllUsers();
-        return $this->render("liste_utilisateur.html.twig", ['users' => $users]);
+        $session = $this->getUser();
+        return $this->render("liste_utilisateur.html.twig", ['users' => $users, 'session' => $session]);
     }
 
     #[Route("/utilisateurs/nouveau", name: "app_admin_front_new_user")]
