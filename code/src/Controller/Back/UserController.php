@@ -19,11 +19,12 @@ class UserController extends AbstractController {
         $password = $request->request->get('password');
         $confirmPassword = $request->request->get('confirmPassword');
 
+        //TODO: Renvoyer un message d'erreur
         if (strcmp($password, $confirmPassword) != 0) {
             return new Response('mdp différents');
         }
 
-        $userService->add_user($mail, $nom, $prenom, $password);
+        $userService->addUser($mail, $nom, $prenom, $password);
         return new Response('ok');
     }
 }
