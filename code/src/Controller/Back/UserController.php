@@ -33,5 +33,10 @@ class UserController extends AbstractController {
     public function userLogin(AuthenticationUtils $authenticationUtils) : Response {
         return new Response($authenticationUtils->getLastAuthenticationError());
     }
+
+    #[Route("/logout", name: "app_logout")]
+    public function userLogout(AuthenticationUtils $authenticationUtils) : Response {
+        dd("Logout pas activé dans security.yaml");
+    }
 }
 

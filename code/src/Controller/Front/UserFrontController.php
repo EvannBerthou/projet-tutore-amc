@@ -20,7 +20,6 @@ class UserFrontController extends AbstractController {
 
     #[Route("/deconnexion", name: "app_front_deconnexion")]
     public function logout(): Response {
-        $response = new Response();
-        return $response->setContent("Deconnexion");
+        return $this->redirectToRoute('app_logout');
     }
 }
