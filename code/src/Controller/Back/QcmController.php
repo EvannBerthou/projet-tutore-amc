@@ -3,9 +3,12 @@
 namespace App\Controller\Back;
 
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Utils\QcmUtils;
+use Doctrine\Persistence\ManagerRegistry;
+use App\Entity\QCM;
 
 #[Route("/api/qcm")]
 class QcmController extends AbstractController {
@@ -22,6 +25,11 @@ class QcmController extends AbstractController {
             "** question 1\n+ réponse 1\n- réponse 2\n\n* question 2\n- réponse 1\n+ réponse 2"
         );
         return $this->qcmUtils->create_qcm_file_to_send("file.pdf", $content);
+    }
+
+    #[Route("/list", name: "app_list_qcm")]
+    public function list_qcm(ManagerRegistry $doctrine): JsonResponse {
+        return new JsonResponse([['data' => 1], ['data' => 2]]);
     }
 }
 
