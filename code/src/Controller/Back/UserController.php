@@ -8,11 +8,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Psr\Log\LoggerInterface;
 use App\Service\UserService;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 #[Route("/api/user")]
 class UserController extends AbstractController {
     #[Route("/", name: "app_user_new_user", methods: ['POST'])]
-    public function add_new_user(Request $request, LoggerInterface $logger, UserService $userService): Response {
+    public function addNewUser(Request $request, LoggerInterface $logger, UserService $userService): Response {
         $mail = $request->request->get('mail');
         $nom = $request->request->get('nom');
         $prenom = $request->request->get('prenom');
@@ -26,6 +27,11 @@ class UserController extends AbstractController {
 
         $userService->addUser($mail, $nom, $prenom, $password);
         return new Response('ok');
+    }
+
+    #[Route("/login", name: "app_user_login")]
+    public function userLogin(AuthenticationUtils $authenticationUtils) : Response {
+        return new Response($authenticationUtils->getLastAuthenticationError());
     }
 }
 
