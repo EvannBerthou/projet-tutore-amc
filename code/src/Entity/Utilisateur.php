@@ -9,25 +9,25 @@ use App\Repository\UserRepository;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface {
-    #[ORM\Id()]
-    #[ORM\GeneratedValue()]
-    #[ORM\Column(type: "integer")]
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: "string", length: 180, unique: true)]
+    #[ORM\Column(type: 'string', length: 180, unique: true)]
     private $email;
 
-    #[ORM\Column(type: "string", length: 50, unique: false, nullable: true)]
+    #[ORM\Column(type: 'string', length: 50, unique: false, nullable: true)]
     public $nom;
 
-    #[ORM\Column(type: "string", length: 50, unique: false, nullable: true)]
+    #[ORM\Column(type: 'string', length: 50, unique: false, nullable: true)]
     public $prenom;
 
-    #[ORM\Column(type: "json")]
+    #[ORM\Column(type: 'json')]
     private $roles = [];
 
     // Le mot de passe est stocké sous forme hashée.
-    #[ORM\Column(type: "string")]
+    #[ORM\Column(type: 'string')]
     private $password;
 
     public function getId(): ?int {
@@ -103,10 +103,10 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface {
     }
 
     public function getNom(): string {
-        return "NOM";
+        return 'NOM';
     }
 
     public function getPrenom(): string {
-        return "PRÉNOM";
+        return 'PRÉNOM';
     }
 }
