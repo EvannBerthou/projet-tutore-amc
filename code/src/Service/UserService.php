@@ -25,6 +25,8 @@ class UserService {
 
         $hashedPassword = $this->passwordHasher->hashPassword($user, $password);
         $user->setPassword($hashedPassword);
+        $user->setNom($nom);
+        $user->setPrenom($nom);
 
         $user->setRoles([]);
         $entityManager->persist($user);

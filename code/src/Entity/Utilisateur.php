@@ -102,11 +102,19 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface {
         // $this->plainPassword = null;
     }
 
+    public function setNom(string $nom) {
+        $this->nom = $nom;
+    }
+
+    public function setPrenom(string $prenom) {
+        $this->prenom = $prenom;
+    }
+
     public function getNom(): string {
-        return 'NOM';
+        return $this->nom;
     }
 
     public function getPrenom(): string {
-        return 'PRÉNOM';
+        return $this->prenom;
     }
 }

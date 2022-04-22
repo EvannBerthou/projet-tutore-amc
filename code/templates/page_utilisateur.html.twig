@@ -3,12 +3,11 @@
 {% block title %}{{ parent() }} - Page utilisateur{% endblock %}
 
 {% block main %} 
-  <h1 class='mes_qcm'>Mes QCM</h1>
-{{ block("menu", "menu.html.twig")}}
-
-<ul>
-    {% for qcm in qcm_list %}
-        <li>{{ qcm.data }}</li>
-    {% endfor %}
-</ul>
+    {{ block("menu", "menu.html.twig")}}
+    <h1 class='mes_qcm'>Mes QCM</h1>
+    <ul>
+        {% for qcm in qcm_list %}
+            <li>{{ qcm.data }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
