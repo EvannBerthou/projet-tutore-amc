@@ -24,28 +24,60 @@
             <div class="nom">
                 Nom
             </div>
+            <div>
+                <ul>
+                    {% for user in users %}
+                        <li>
+                            <div>
+                                {{ user.getNom() }}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
             <div class="prenom">
                 Prénom
+            </div>
+            <div>
+                <ul>
+                    {% for user in users %}
+                        <li>
+                            <div>
+                                {{ user.getPrenom() }}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
             <div class="mail">
                 Mail
             </div>
+            <div>
+                <ul>
+                    {% for user in users %}
+                        <li>
+                            <div>
+                                {{ user.getEmail() }}
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
             <div class="action">
                 Action
             </div>
+            <div>
+                <ul>
+                    {% for user in users %}
+                        <li>
+                            <div>
+                                <img src="../svg/modif.svg">
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
-        
-        <ul> 
-        {% for user in users %}
-            <li> 
-                <div> 
-                    {{ user.getNom() }} 
-                    {{ user.getPrenom() }} 
-                    {{ user.getEmail() }} 
-                </div>
-            </li>
-        {% endfor %}
-        </ul>
     </main>
 
 {% endblock %}
