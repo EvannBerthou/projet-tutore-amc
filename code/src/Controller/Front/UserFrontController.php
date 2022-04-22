@@ -14,8 +14,8 @@ class UserFrontController extends AbstractController {
 
     #[Route('/accueil-utilisateur', name: 'app_home_front_user')]
     public function user(): Response {
-        $response = new Response();
-        return $this->render('accueil_utilisateur.html.twig');
+        $session = $this->getUser();
+        return $this->render("accueil_utilisateur.html.twig", ['session' => $session]);
     }
 
     #[Route('/deconnexion', name: 'app_front_deconnexion')]

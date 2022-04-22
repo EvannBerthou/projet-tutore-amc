@@ -19,16 +19,16 @@
             <form method="POST" action="{{ path('app_user_login') }}" class="div-connexion">
                 <div class="user_box">
                 <img src="svg/user2.svg" class="icon">
-                <input type="email" size="30" name="_username" placeholder="Adresse mail" required>
+                <input type="email" id="username" size="30" name="_username" placeholder="Adresse mail" required>
                 </div>
 
                 <div class="user_box">
                 <img src="svg/user3.svg" class="icon">
-                <input type="password" size="30" name="_password" placeholder="Mot de passe" required>
+                <input type="password" id="pwd" size="30" name="_password" placeholder="Mot de passe" required>
                 </div>
 
                 <div class="stay_connected">
-                <input type="checkbox" value="Rester connecté" name="stay">
+                <input type="checkbox" id="rememberMe" onchange="setrememberMe(this)"value="Rester connecté" name="stay">
                 <span>Se souvenir de moi</span>
                 <a href="#" class="forgot_pwd">Mot de passe oublié</a>
                 </div>
@@ -40,7 +40,42 @@
             </form>
 
         </div>
+
+    <script type="text/javascript">
+
+        function setrememberMe(e){
+            if (e.checked){
+
+                if (pwdInput.value && usernameInput.value){
+                    localStorage.setItem("checkbox","true");
+                    localStorage.setItem("usernameInput",usernameInput.value);
+                    localStorage.setItem("pwdInput",pwdInput.value);
+                }
+
+            }else{
+                localStorage.checkbox = ""; 
+                localStorage.clear(); 
+
+            }
+        }
+
+        const rmCheck = document.getElementById("rememberMe");
+        const usernameInput = document.getElementById("username");
+        const pwdInput = document.getElementById("pwd");
+
+
+        if (localStorage.checkbox && localStorage.checkbox !== "") {
+            rmCheck.setAttribute("checked", "checked");
+            usernameInput.value = localStorage.usernameInput;
+            pwdInput.value = localStorage.pwdInput;
+
+        }else{
+            rmCheck.removeAttribute("checked");
+        }
+        
+    </script>
 {% endblock %}
+
 
 
 
