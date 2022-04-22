@@ -20,11 +20,13 @@ class AdminController extends AbstractController {
 
     #[Route("/utilisateurs/nouveau", name: "app_admin_front_new_user")]
     public function new_user(): Response {
-        return $this->render("creation_utilisateur.html.twig");
+        $session = $this->getUser();
+        return $this->render("creation_utilisateur.html.twig", ['session' => $session]);
     }
 
     #[Route("/utilisateurs/modif", name: "app_admin_front_user")]
     public function user_profile(): Response {
-        return $this->render("modif_utilisateur.html.twig ");
+        $session = $this->getUser();
+        return $this->render("modif_utilisateur.html.twig", ['session' => $session]);
     }
 }

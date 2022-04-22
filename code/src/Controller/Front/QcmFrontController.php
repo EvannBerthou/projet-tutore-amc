@@ -20,14 +20,14 @@ class QcmFrontController extends AbstractController {
 
     #[Route("/modif_qcm", name:"app_qcm_front_update")]
     public function update_qcm(): Response {
-        $response = new Response();
-        return $this->render("modif_qcm.html.twig");
+        $session = $this->getUser();
+        return $this->render("modif_qcm.html.twig", ['session' => $session]);
     }
 
 
     #[Route("/correction_qcm", name:"app_qcm_front_mark")]
     public function mark_qcm(): Response {
-        $response = new Response();
-        return $response->setContent("Correction QCM");
+        $session = $this->getUser();
+        return $this->render("correction_qcm.html.twig", ['session' => $session]);
     }
 }
