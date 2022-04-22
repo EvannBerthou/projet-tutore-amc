@@ -23,6 +23,7 @@
     padding: 2em;
     border-radius: 23px;
     text-align: center;
+    transition: all 0.3s;
 }
 
 .bloc1 :hover
@@ -38,6 +39,7 @@
     padding: 2em;
     border-radius: 23px;
     text-align: center;
+    transition: all 0.3s;
 }
 
 .bloc2 :hover
@@ -53,6 +55,7 @@
     padding: 2em;
     border-radius: 23px;
     text-align: center;
+    transition: all 0.3s;
 }
 
 .bloc3 :hover

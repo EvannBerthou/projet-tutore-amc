@@ -14,8 +14,8 @@
     grid-template-rows: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+    grid-auto-flow: row;
     text-align: center;
-    color: var(--light);
 }
 
 .nom
@@ -25,6 +25,7 @@
     border-radius: 23px;
     padding: 1em;
     margin: 1em;
+    color: var(--light);
 }
 
 .prenom
@@ -34,6 +35,7 @@
     border-radius: 23px;
     padding: 1em;
     margin: 1em;
+    color: var(--light);
 }
 
 .mail
@@ -43,6 +45,7 @@
     border-radius: 23px;
     padding: 1em;
     margin: 1em;
+    color: var(--light);
 }
 
 .action
@@ -52,4 +55,21 @@
     border-radius: 23px;
     padding: 1em;
     margin: 1em;
+    color: var(--light);
+}
+
+ul
+{
+    list-style: none;
+    padding: 0%;
+}
+
+img
+{
+    width: 2em;
+}
+
+li
+{
+    margin-bottom: 2em;
 }

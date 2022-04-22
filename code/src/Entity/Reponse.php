@@ -7,15 +7,15 @@ use App\Entity\ReponseRepository;
 
 #[ORM\Entity(repositoryClass: ReponseRepository::class)]
 class Reponse {
-    #[ORM\Id()]
-    #[ORM\GeneratedValue()]
-    #[ORM\Column(type: "integer")]
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: "boolean")]
+    #[ORM\Column(type: 'boolean')]
     private $estCorrect;
 
-    #[ORM\Column(type: "string")]
+    #[ORM\Column(type: 'string')]
     private $texte;
 
     public function getId(): ?int {

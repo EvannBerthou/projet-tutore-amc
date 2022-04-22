@@ -8,24 +8,32 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\QCM;
 use Psr\Log\LoggerInterface;
+use App\Utils\ControllerUtils;
 
-#[Route("/qcm")]
+#[Route('/qcm')]
 class QcmFrontController extends AbstractController {
-    #[Route("/mes_qcm", name:"app_qcm_front_list")]
-    public function list_qcm(ManagerRegistry $doctrine, LoggerInterface $logger): Response {
-        $qcm_list = $doctrine->getRepository(QCM::class)->findAll();
-        return $this->render("page_utilisateur.html.twig", ['user_name' => "Alicia", 'qcm_list' => $qcm_list]);
+    private function forwardTo(string $routename) {
+        $routes = $this->get('router')->getRouteCollection();
+        return $this->forward($routes->get($routename)->getDefaults()['_controller']);
     }
 
+    #[Route('/mes_qcm', name: 'app_qcm_front_list')]
+    public function list_qcm(ManagerRegistry $doctrine, LoggerInterface $logger): Response {
+        $response = $this->forwardTo('app_list_qcm');
+        $json = json_decode($response->getContent());
+        return $this->render('page_utilisateur.html.twig', [
+            'user_name' => 'Alicia',
+            'qcm_list' => $json,
+        ]);
+    }
 
-    #[Route("/modif_qcm", name:"app_qcm_front_update")]
+    #[Route('/modif_qcm', name: 'app_qcm_front_update')]
     public function update_qcm(): Response {
         $session = $this->getUser();
         return $this->render("modif_qcm.html.twig", ['session' => $session]);
     }
 
-
-    #[Route("/correction_qcm", name:"app_qcm_front_mark")]
+    #[Route('/correction_qcm', name: 'app_qcm_front_mark')]
     public function mark_qcm(): Response {
         $session = $this->getUser();
         return $this->render("correction_qcm.html.twig", ['session' => $session]);

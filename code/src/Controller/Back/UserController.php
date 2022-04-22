@@ -10,9 +10,9 @@ use Psr\Log\LoggerInterface;
 use App\Service\UserService;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-#[Route("/api/user")]
+#[Route('/api/user')]
 class UserController extends AbstractController {
-    #[Route("/", name: "app_user_new_user", methods: ['POST'])]
+    #[Route('/', name: 'app_user_new_user', methods: ['POST'])]
     public function addNewUser(Request $request, LoggerInterface $logger, UserService $userService): Response {
         $mail = $request->request->get('mail');
         $nom = $request->request->get('nom');
@@ -29,14 +29,13 @@ class UserController extends AbstractController {
         return new Response('ok');
     }
 
-    #[Route("/login", name: "app_user_login")]
-    public function userLogin(AuthenticationUtils $authenticationUtils) : Response {
+    #[Route('/login', name: 'app_user_login')]
+    public function userLogin(AuthenticationUtils $authenticationUtils): Response {
         return new Response($authenticationUtils->getLastAuthenticationError());
     }
 
-    #[Route("/logout", name: "app_logout")]
-    public function userLogout(AuthenticationUtils $authenticationUtils) : Response {
-        dd("Logout pas activé dans security.yaml");
+    #[Route('/logout', name: 'app_logout')]
+    public function userLogout(AuthenticationUtils $authenticationUtils): Response {
+        dd('Logout pas activé dans security.yaml');
     }
 }
-
