@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\QuestionRepository;
 
@@ -12,11 +13,14 @@ class Question {
     #[ORM\Column(type: 'integer')]
     private $id;
 
+    #[Orm\ManyToOne(targetEntity: QCM::class, inversedBy: 'qcm')]
+    private $qcm;
+
     #[ORM\Column(type: 'string', length: 255)]
     private $enonce;
 
-    #[ORM\ManyToOne(targetEntity: Reponse::class, inversedBy: 'questions')]
-    private $qcm;
+    #[ORM\OneToMany(targetEntity: Reponse::class, mappedBy: 'question')]
+    private $reponses;
 
     #[ORM\Column(name: 'type', type: 'string', length: 255, nullable: false)]
     private $type;
@@ -27,6 +31,10 @@ class Question {
     #[ORM\OneToOne(targetEntity: 'QuestionImage')]
     #[ORM\JoinColumn(nullable: true)]
     private $image;
+
+    public function __construct() {
+        $this->reponses = new ArrayCollection();
+    }
 
     public function setType($type) {
         if (!in_array($type, QuestionTypeEnum::getAvailableTypes())) {

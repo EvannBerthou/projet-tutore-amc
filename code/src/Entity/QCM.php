@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\QCMRepository;
 
@@ -21,11 +22,19 @@ class QCM {
     #[ORM\OneToMany(targetEntity: Question::class, mappedBy: 'qcm')]
     private $questions;
 
+    public function __construct() {
+        $this->questions = new ArrayCollection();   
+    }
+
     public function getId(): ?int {
         return $this->id;
     }
 
     public function titre(): string {
         return $this->titre;
+    }
+
+    public function getQuestions() {
+        return $this->questions->getValues();
     }
 }

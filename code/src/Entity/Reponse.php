@@ -12,6 +12,9 @@ class Reponse {
     #[ORM\Column(type: 'integer')]
     private $id;
 
+    #[Orm\ManyToOne(targetEntity: Question::class, inversedBy: 'question')]
+    private $question;
+
     #[ORM\Column(type: 'boolean')]
     private $estCorrect;
 

@@ -2,6 +2,7 @@
 
 namespace App\Controller\Back;
 
+use App\Repository\QCMRepository;
 use App\Utils\QcmUtils;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,9 +14,11 @@ use App\Entity\QCM;
 #[Route('/api/qcm')]
 class QcmController extends AbstractController {
     private QcmUtils $qcmUtils;
+    private QCMRepository $qcmRepository;
 
-    public function __construct(QcmUtils $qcmUtils) {
+    public function __construct(QcmUtils $qcmUtils, QCMRepository $QCMRepository) {
         $this->qcmUtils = $qcmUtils;
+        $this->qcmRepository = $QCMRepository;
     }
 
     #[Route('/generate', name: 'app_generate_qcm')]
@@ -29,6 +32,7 @@ class QcmController extends AbstractController {
 
     #[Route('/list', name: 'app_list_qcm')]
     public function list_qcm(ManagerRegistry $doctrine): JsonResponse {
+        dd($this->qcmRepository->findAll()[0]->getQuestions());
         return new JsonResponse([['data' => 1], ['data' => 2]]);
     }
 }
