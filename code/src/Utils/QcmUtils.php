@@ -20,7 +20,7 @@ class QcmUtils {
         $this->QCMRepository = $QCMRepository;
     }
 
-    public function getQcm(int $id): QCM {
+    public function getQcm(int $id): ?QCM {
         return $this->QCMRepository->find($id);
     }
 
@@ -44,6 +44,10 @@ class QcmUtils {
         $response->sendHeaders();
         $response->setContent($content);
         return $response;
+    }
+
+    public function getNextId() {
+        return $this->QCMRepository->getMaxId() + 1;
     }
 
     public function serialize($qcms) {

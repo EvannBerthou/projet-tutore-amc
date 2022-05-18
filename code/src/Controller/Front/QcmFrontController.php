@@ -44,14 +44,15 @@ class QcmFrontController extends AbstractController {
         ]);
     }
 
-    //TODO: Route temp pour rediriger vers une page valide
-    #[Route('/modif_qcm', name: 'app_qcm_front_update_temp')]
-    public function update_qcm_temp(): Response {
-        return $this->redirectToRoute('app_qcm_front_update', ['id' => 1]);
+    #[Route('/modif_qcm', name: 'app_qcm_new')]
+    public function newQCM(): Response {
+        $id = $this->qcmUtils->getNextId();
+        //TODO: Créer un nouveau QCM pour l'utilisateur
+        return $this->redirectToRoute('app_qcm_front_update', ['id' => $id]);
     }
 
     #[Route('/modif_qcm/{id}', name: 'app_qcm_front_update', requirements: ['id' => '\d+'])]
-    public function update_qcm(int $id): Response {
+    public function updateQCM(int $id): Response {
         $session = $this->getUser();
         $qcm = $this->qcmUtils->getQcm($id);
         if (!$qcm) {
