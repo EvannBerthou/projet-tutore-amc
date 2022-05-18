@@ -4,7 +4,6 @@ namespace App\Utils;
 
 use App\Entity\QCM;
 use App\Repository\QCMRepository;
-use Exception;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 use Symfony\Component\HttpFoundation\File\File;
@@ -18,11 +17,7 @@ class QcmUtils {
     }
 
     public function getQcm(int $id): QCM {
-        $qcm = $this->QCMRepository->find($id);
-        if (!$qcm) {
-            throw new Exception("Le QCM avec l'id \'" . $id . "\' n'existe pas");
-        }
-        return $qcm;
+        return $this->QCMRepository->find($id);
     }
 
     public function generate_qcm(QCM $qcm): string {

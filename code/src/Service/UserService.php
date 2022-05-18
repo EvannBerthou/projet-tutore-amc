@@ -8,6 +8,10 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class UserService {
+    private $doctrine;
+    private $userRepository;
+    private $passwordHasher;
+
     public function __construct(
         ManagerRegistry $doctrine,
         UserRepository $userRepository,

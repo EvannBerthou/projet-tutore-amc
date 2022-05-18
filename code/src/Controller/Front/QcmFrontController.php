@@ -2,6 +2,7 @@
 
 namespace App\Controller\Front;
 
+use App\Utils\QcmUtils;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,6 +13,12 @@ use App\Utils\ControllerUtils;
 
 #[Route('/qcm')]
 class QcmFrontController extends AbstractController {
+    private QcmUtils $qcmUtils;
+
+    public function __construct(QcmUtils $qcmUtils) {
+        $this->qcmUtils = $qcmUtils;
+    }
+
     private function forwardTo(string $routename) {
         $routes = $this->get('router')->getRouteCollection();
         return $this->forward($routes->get($routename)->getDefaults()['_controller']);
@@ -36,7 +43,16 @@ class QcmFrontController extends AbstractController {
     #[Route('/modif_qcm/{id}', name: 'app_qcm_front_update', requirements: ['id' => '\d+'])]
     public function update_qcm(int $id): Response {
         $session = $this->getUser();
-        return $this->render("modif_qcm.html.twig", ['session' => $session, 'qcm_id' => $id]);
+        $qcm = $this->qcmUtils->getQcm($id);
+        if (!$qcm) {
+            $qcm = new QCM();
+        }
+
+        return $this->render("modif_qcm.html.twig", [
+            'session' => $session, 
+            'qcm_id' => $id, 
+            'qcm' => $qcm
+        ]);
     }
 
     #[Route('/correction_qcm', name: 'app_qcm_front_mark')]

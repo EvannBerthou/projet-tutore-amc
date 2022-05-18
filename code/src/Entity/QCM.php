@@ -34,6 +34,10 @@ class QCM {
         return $this->titre;
     }
 
+    public function getDate() {
+        return $this->date;
+    }
+
     public function getQuestions() {
         return $this->questions->getValues();
     }
@@ -57,5 +61,9 @@ class QCM {
 
         //return "** question 1\n+ réponse 1\n- réponse 2\n\n* question 2\n- réponse 1\n+ réponse 2";
         return $data;
+    }
+
+    public function __toString() {
+        return $this->titre;
     }
 }

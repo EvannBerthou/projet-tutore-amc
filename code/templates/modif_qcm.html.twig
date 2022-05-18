@@ -83,9 +83,11 @@
             inputReponse.setAttribute("class","text_reponse");
             inputReponse.setAttribute("placeholder","Entrez une réponse ici");
             inputReponse.setAttribute("size","50");
-            inputReponse.setAttribute("name","Rinput-"+(elem.children.length)+"-"+e);
+            inputReponse.setAttribute("name","Rinput-"+e+"-"+(elem.children.length));
+            inputReponse.setAttribute("id","Rinput-"+e+"-"+(elem.children.length));
             inputTrueReponse.setAttribute("type","checkbox");
-            inputTrueReponse.setAttribute("name","Rbox-"+(elem.children.length)+"-"+e);
+            inputTrueReponse.setAttribute("name","Rbox-"+e+"-"+(elem.children.length));
+            inputTrueReponse.setAttribute("id","Rbox-"+e+"-"+(elem.children.length));
             inputTrueReponse.setAttribute("title","Cochez la/les bonne(s) réponses");
 
             divReponse.appendChild(labelNumReponse);
@@ -120,6 +122,7 @@
 
             let labelNumQuestion = document.createElement("label");
             let inputQuestion = document.createElement("input");
+            inputQuestion.setAttribute("id", "input-question-" + divParent.children.length.toString());
             let inputQuestionImg = document.createElement("input");
             let buttonAddReponse = document.createElement("input");
             let buttonDelQuestion = document.createElement("input");
@@ -161,7 +164,23 @@
             divParent.appendChild(divQuestionETReponse);
         }
 
-        addQuestion();
+        function load_qcm() {
+            {% for question in qcm.questions %}
+                addQuestion();
+                document.getElementById("input-question-" + {{loop.index0}}).value = "{{question.enonce}}";
+                //inputReponse.setAttribute("id","Rinput-"+(elem.children.length)+"-"+e);
+                {% for reponse in question.reponses %}
+                    addAnswer({{loop.parent.loop.index0}});
+                    document.getElementById("Rinput-{{loop.parent.loop.index0}}-{{loop.index}}").value = "{{reponse.texte}}";
+                    document.getElementById("Rbox-{{loop.parent.loop.index0}}-{{loop.index}}").checked = "{{reponse.isCorrect()}}";
+                {% endfor %}
+            {% endfor %}
+        }
+
+        load_qcm();
+        if ({{qcm.id}} == 0) {
+            addQuestion();
+        }
 
         function generate_pdf() {
             fetch("http://localhost:8000/api/qcm/generate/{{qcm_id}}")
