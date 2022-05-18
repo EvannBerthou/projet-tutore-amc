@@ -3,11 +3,11 @@
         <span class='hello_user'>Bienvenue {{ session.email|default('user') }} </span>
         <button class="boutonmenuprincipal"><img src="{{ asset('svg/user.svg') }}" alt="icone utilisateur"></button>
         <div class="dropdown-child">
-            <a href="{{ path("app_qcm_front_list") }}">Mes QCM </a>
-            <a href="qcm/modif_qcm">Créer un QCM</a>
-            <a href="qcm/correction_qcm">Corriger un QCM</a>
-            <a href="parametres">Paramètres</a>
-            <a href="{{ path("app_logout") }}">Déconnexion</a>
+            <a href="{{ path('app_qcm_front_list') }}">Mes QCM </a>
+            <a href="{{ path('app_qcm_new') }}">Créer un QCM</a>
+            <a href="#">Corriger un QCM</a>
+            <a href="#">Paramètres</a>
+            <a href="{{ path('app_logout') }}">Déconnexion</a>
         </div>
     </div>
 {% endblock %}

@@ -16,6 +16,7 @@ use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
 #[Route('/api/qcm')]
+#[IsGranted('ROLE_USER')]
 class QcmController extends AbstractController {
     private QcmUtils $qcmUtils;
     private QCMRepository $QCMRepository;

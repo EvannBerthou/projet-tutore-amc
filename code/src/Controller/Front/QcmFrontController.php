@@ -16,6 +16,7 @@ use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
 #[Route('/qcm')]
+#[IsGranted('ROLE_USER')]
 class QcmFrontController extends AbstractController {
     private QcmUtils $qcmUtils;
 
@@ -30,16 +31,11 @@ class QcmFrontController extends AbstractController {
 
     #[Route('/mes_qcm', name: 'app_qcm_front_list')]
     public function list_qcm(ManagerRegistry $doctrine, LoggerInterface $logger): Response {
+        $session = $this->getUser();
         $response = $this->forwardTo('app_list_qcm');
-
-        $encoders = [new JsonEncoder()];
-        $normalizers = [new ObjectNormalizer(), new ArrayDenormalizer()];
-        $serializer = new Serializer($normalizers, $encoders);
-        $data = json_decode($response->getContent());
-        $qcms = $serializer->deserialize($data, 'App\Entity\QCM[]', 'json');
-
+        $qcms = $this->qcmUtils->deserialize($response);
         return $this->render('page_utilisateur.html.twig', [
-            'user_name' => 'Alicia',
+            'session' => $session, 
             'qcm_list' => $qcms,
         ]);
     }
