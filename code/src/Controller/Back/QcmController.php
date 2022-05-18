@@ -39,12 +39,7 @@ class QcmController extends AbstractController {
 
     #[Route('/list', name: 'app_list_qcm')]
     public function list_qcm(ManagerRegistry $doctrine): JsonResponse {
-        $encoders = [new JsonEncoder()];
-        $normalizers = [new ObjectNormalizer()];
-        $serializer = new Serializer($normalizers, $encoders);
-
         $qcms = $this->QCMRepository->findAll();
-        $jsonContent = $serializer->serialize($qcms, 'json');
-        return new JsonResponse($jsonContent);
+        return new JsonResponse($this->qcmUtils->serialize($qcms));
     }
 }

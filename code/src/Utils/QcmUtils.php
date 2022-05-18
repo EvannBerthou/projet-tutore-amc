@@ -8,6 +8,10 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class QcmUtils {
     private $QCMRepository;
@@ -40,5 +44,22 @@ class QcmUtils {
         $response->sendHeaders();
         $response->setContent($content);
         return $response;
+    }
+
+    public function serialize($qcms) {
+        $encoders = [new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+        $jsonContent = $serializer->serialize($qcms, 'json');
+        return $jsonContent;
+    }
+
+    public function deserialize($response) {
+        $encoders = [new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer(), new ArrayDenormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+        $data = json_decode($response->getContent());
+        $qcms = $serializer->deserialize($data, 'App\Entity\QCM[]', 'json');
+        return $qcms;
     }
 }
