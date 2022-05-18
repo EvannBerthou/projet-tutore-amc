@@ -37,4 +37,25 @@ class QCM {
     public function getQuestions() {
         return $this->questions->getValues();
     }
+
+    public function toAMCTXT(): string {
+        $data = <<<HERODOC
+        PaperSize: A4
+        Lang: FR
+        Title: $this->titre
+        Presentation: Veuillez répondre aux questions ci-dessous du mieux que vous pouvez.
+
+        HERODOC;
+
+        foreach ($this->getQuestions() as $question) {
+            $data .= "* {$question->getEnonce()}\n";
+            foreach ($question->getReponses() as $reponse) {
+                $prefix = $reponse->isCorrect() ? "+" : "-";
+                $data .= "$prefix {$reponse->getTexte()}\n";
+            }
+        }
+
+        //return "** question 1\n+ réponse 1\n- réponse 2\n\n* question 2\n- réponse 1\n+ réponse 2";
+        return $data;
+    }
 }

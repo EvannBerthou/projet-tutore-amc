@@ -48,4 +48,12 @@ class Question {
     public function getId(): ?int {
         return $this->id;
     }
+
+    public function getEnonce(): string {
+        return $this->enonce;
+    }
+
+    public function getReponses() {
+        return $this->reponses->getValues();
+    }
 }

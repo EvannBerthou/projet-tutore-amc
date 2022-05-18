@@ -17,7 +17,7 @@ class UserService {
         $this->userRepository = $userRepository;
         $this->passwordHasher = $passwordHasher;
     }
-    //TODO: Changer le nom à addUser
+
     public function addUser(string $mail, string $nom, string $prenom, string $password): void {
         $entityManager = $this->doctrine->getManager();
         $user = new Utilisateur();

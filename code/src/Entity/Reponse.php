@@ -24,4 +24,12 @@ class Reponse {
     public function getId(): ?int {
         return $this->id;
     }
+
+    public function getTexte(): string {
+        return $this->texte;
+    }
+
+    public function isCorrect(): bool {
+        return $this->estCorrect;
+    }
 }

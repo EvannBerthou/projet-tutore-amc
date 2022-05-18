@@ -14,19 +14,17 @@ use App\Entity\QCM;
 #[Route('/api/qcm')]
 class QcmController extends AbstractController {
     private QcmUtils $qcmUtils;
-    private QCMRepository $qcmRepository;
+    private QCMRepository $QCMRepository;
 
     public function __construct(QcmUtils $qcmUtils, QCMRepository $QCMRepository) {
         $this->qcmUtils = $qcmUtils;
-        $this->qcmRepository = $QCMRepository;
+        $this->QCMRepository = $QCMRepository;
     }
 
-    #[Route('/generate', name: 'app_generate_qcm')]
-    public function generate_qcm(): Response {
-        // TODO: Charger les données du QCM depuis la BD
-        $content = $this->qcmUtils->generate_qcm(
-            "** question 1\n+ réponse 1\n- réponse 2\n\n* question 2\n- réponse 1\n+ réponse 2",
-        );
+    #[Route('/generate/{id}', name: 'app_generate_qcm', requirements: ['id' => '\d+'])]
+    public function generate_qcm(int $id): Response {
+        $qcm = $this->qcmUtils->getQcm($id);
+        $content = $this->qcmUtils->generate_qcm($qcm);
         return $this->qcmUtils->create_qcm_file_to_send('file.pdf', $content);
     }
 

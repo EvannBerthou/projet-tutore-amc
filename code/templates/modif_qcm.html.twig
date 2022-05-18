@@ -17,36 +17,30 @@
 
     <!--CREATION QCM-->
 
-    <form action="validationtest.php" method="POST">
-
-        <div class="grid">
-
-            <div class="title">
-                <label class="titreQCM">Titre du QCM</label>
-                <input type="text" placeholder="Entrez le titre du QCM ici" size="50" name="inputtitreQCM">
-            </div>
-
-            <div id="question_reponse"></div>
-
-            <div class="button_add_Q">
-                <input type="button" value="Ajouter une question" onClick="addQuestion(this)" >
-            </div>
-
-            <div class="button_visu">
-                <input type="button" value="Visualiser le QCM">
-            </div>
-
-            <div class="button_save">
-                <input type="button" value="Sauvegarder le QCM">
-            </div>
-
-            <div class="submitbutton">
-                <input type="submit" value="Télécharger le QCM">
-            </div>
-
+    <div class="grid">
+        <div class="title">
+            <label class="titreQCM">Titre du QCM</label>
+            <input type="text" placeholder="Entrez le titre du QCM ici" size="50" name="inputtitreQCM" />
         </div>
 
-    </form>
+        <div id="question_reponse"></div>
+
+        <div class="button_add_Q">
+            <input type="button" value="Ajouter une question" onClick="addQuestion(this)" />
+        </div>
+
+        <div class="button_visu">
+            <input type="button" value="Visualiser le QCM">
+        </div>
+
+        <div class="button_save">
+            <input type="button" value="Sauvegarder le QCM">
+        </div>
+
+        <div class="submitbutton" onclick="generate_pdf()">
+            <input type="button" value="Télécharger le QCM">
+        </div>
+    </div>
 
     <script>
         function delAnswer(idDivReponse)
@@ -168,6 +162,15 @@
         }
 
         addQuestion();
+
+        function generate_pdf() {
+            fetch("http://localhost:8000/api/qcm/generate")
+                .then(res => res.blob())
+                .then(data => {
+                    const file = new Blob([data], {type: 'application/pdf'});
+                    window.open(window.URL.createObjectURL(file));
+                });
+        }
     </script>
 
 {% endblock %}
