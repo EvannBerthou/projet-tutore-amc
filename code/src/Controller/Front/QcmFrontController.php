@@ -27,10 +27,16 @@ class QcmFrontController extends AbstractController {
         ]);
     }
 
-    #[Route('/modif_qcm', name: 'app_qcm_front_update')]
-    public function update_qcm(): Response {
+    //TODO: Route temp pour rediriger vers une page valide
+    #[Route('/modif_qcm', name: 'app_qcm_front_update_temp')]
+    public function update_qcm_temp(): Response {
+        return $this->redirectToRoute('app_qcm_front_update', ['id' => 1]);
+    }
+
+    #[Route('/modif_qcm/{id}', name: 'app_qcm_front_update', requirements: ['id' => '\d+'])]
+    public function update_qcm(int $id): Response {
         $session = $this->getUser();
-        return $this->render("modif_qcm.html.twig", ['session' => $session]);
+        return $this->render("modif_qcm.html.twig", ['session' => $session, 'qcm_id' => $id]);
     }
 
     #[Route('/correction_qcm', name: 'app_qcm_front_mark')]
