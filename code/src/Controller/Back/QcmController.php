@@ -11,6 +11,9 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\QCM;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 #[Route('/api/qcm')]
 class QcmController extends AbstractController {
@@ -36,7 +39,12 @@ class QcmController extends AbstractController {
 
     #[Route('/list', name: 'app_list_qcm')]
     public function list_qcm(ManagerRegistry $doctrine): JsonResponse {
-        dd($this->qcmRepository->findAll()[0]->getQuestions());
-        return new JsonResponse([['data' => 1], ['data' => 2]]);
+        $encoders = [new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+
+        $qcms = $this->QCMRepository->findAll();
+        $jsonContent = $serializer->serialize($qcms, 'json');
+        return new JsonResponse($jsonContent);
     }
 }

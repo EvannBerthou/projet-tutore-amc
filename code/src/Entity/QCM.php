@@ -30,16 +30,32 @@ class QCM {
         return $this->id;
     }
 
-    public function titre(): string {
+    public function setId(int $id) {
+        $this->id = $id;
+    }
+
+    public function getTitre(): string {
         return $this->titre;
+    }
+
+    public function setTitre(string $titre) {
+        $this->titre = $titre;
     }
 
     public function getDate() {
         return $this->date;
     }
 
+    public function setDate($date) {
+        $this->date = $date;
+    }
+
     public function getQuestions() {
         return $this->questions->getValues();
+    }
+
+    public function setQuestions($questions) {
+        $this->questions = $questions;
     }
 
     public function toAMCTXT(): string {

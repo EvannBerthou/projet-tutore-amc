@@ -10,6 +10,10 @@ use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\QCM;
 use Psr\Log\LoggerInterface;
 use App\Utils\ControllerUtils;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 #[Route('/qcm')]
 class QcmFrontController extends AbstractController {
@@ -27,10 +31,16 @@ class QcmFrontController extends AbstractController {
     #[Route('/mes_qcm', name: 'app_qcm_front_list')]
     public function list_qcm(ManagerRegistry $doctrine, LoggerInterface $logger): Response {
         $response = $this->forwardTo('app_list_qcm');
-        $json = json_decode($response->getContent());
+
+        $encoders = [new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer(), new ArrayDenormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+        $data = json_decode($response->getContent());
+        $qcms = $serializer->deserialize($data, 'App\Entity\QCM[]', 'json');
+
         return $this->render('page_utilisateur.html.twig', [
             'user_name' => 'Alicia',
-            'qcm_list' => $json,
+            'qcm_list' => $qcms,
         ]);
     }
 
