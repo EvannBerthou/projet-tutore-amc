@@ -12,7 +12,7 @@ class Reponse {
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[Orm\ManyToOne(targetEntity: Question::class, inversedBy: 'question')]
+    #[Orm\ManyToOne(targetEntity: Question::class, inversedBy: 'reponses')]
     private $question;
 
     #[ORM\Column(type: 'boolean')]

@@ -13,7 +13,7 @@ class Question {
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[Orm\ManyToOne(targetEntity: QCM::class, inversedBy: 'qcm')]
+    #[Orm\ManyToOne(targetEntity: QCM::class, inversedBy: 'questions')]
     private $qcm;
 
     #[ORM\Column(type: 'string', length: 255)]
