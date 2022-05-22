@@ -61,7 +61,6 @@ class QCM {
         $this->questions = $questions;
     }
 
-    /*
     public function getUser() {
         return $this->user;
     }
@@ -69,7 +68,6 @@ class QCM {
     public function setUser($user) {
         $this->user = $user;
     }
-    */
 
     public function toAMCTXT(): string {
         $data = <<<HERODOC

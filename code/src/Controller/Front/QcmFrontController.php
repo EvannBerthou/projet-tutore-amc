@@ -2,8 +2,10 @@
 
 namespace App\Controller\Front;
 
+use App\Entity\Utilisateur;
 use App\Utils\QcmUtils;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\Persistence\ManagerRegistry;
@@ -51,8 +53,14 @@ class QcmFrontController extends AbstractController {
 
     #[Route('/modif_qcm/{id}', name: 'app_qcm_front_update', requirements: ['id' => '\d+'])]
     public function updateQCM(int $id): Response {
+        /** @var Utilisateur $session */
         $session = $this->getUser();
         $qcm = $this->qcmUtils->getQcm($id);
+    
+        if ($qcm->getUser()->getId() !== $session->getId()) {
+            throw new AccessDeniedHttpException("Vous n'êtes pas le propriétaire de ce QCM");
+        }
+
         if (!$qcm) {
             $qcm = new QCM();
         }
