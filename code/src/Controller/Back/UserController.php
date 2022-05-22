@@ -2,6 +2,7 @@
 
 namespace App\Controller\Back;
 
+use Exception;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,7 +23,7 @@ class UserController extends AbstractController {
 
         //TODO: Renvoyer un message d'erreur
         if (strcmp($password, $confirmPassword) != 0) {
-            return new Response('mdp différents');
+            return new Exception();
         }
 
         $userService->addUser($mail, $nom, $prenom, $password);

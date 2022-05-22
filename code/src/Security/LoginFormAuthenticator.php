@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Security;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Http\Authenticator\Passport\Badge\RememberMeBadge;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -42,7 +43,8 @@ class LoginFormAuthenticator extends AbstractAuthenticator {
     }
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response {
-        dd($exception);
+        $request->getSession()->set(Security::AUTHENTICATION_ERROR, $exception);
+        return new RedirectResponse($this->router->generate('app_front_connexion'));
     }
 
 //    public function start(Request $request, AuthenticationException $authException = null): Response
