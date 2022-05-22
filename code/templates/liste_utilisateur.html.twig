@@ -39,7 +39,7 @@
                     {{ user.getEmail() }}
                 </td>
                 <td>
-                    <img class="image" src="../svg/modif.svg">
+                    <a href="{{ path('app_admin_front_user', {id: user.getId()}) }}"><img class="image" src="../svg/modif.svg"></a>
                     <img class="poubelle image" src="../svg/poubelle.svg">
                 </td>
             </tr>
