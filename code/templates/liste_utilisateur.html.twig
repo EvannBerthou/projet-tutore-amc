@@ -20,67 +20,31 @@
         <div class="titre">
             Liste de utilisateurs
         </div>
-        <div class="sous_titre">
-            <div class="nom">
-                Nom
-            </div>
-            <div>
-                <ul>
-                    {% for user in users %}
-                        <li>
-                            <div>
-                                {{ user.getNom() }}
-                                <img class="cache" src="../svg/modif.svg">
-                            </div>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="prenom">
-                Prénom
-            </div>
-            <div>
-                <ul>
-                    {% for user in users %}
-                        <li>
-                            <div>
-                                {{ user.getPrenom() }}
-                                <img class="cache" src="../svg/modif.svg">
-                            </div>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="mail">
-                Mail
-            </div>
-            <div>
-                <ul>
-                    {% for user in users %}
-                        <li>
-                            <div>
-                                {{ user.getEmail() }}
-                                <img class="cache" src="../svg/modif.svg">
-                            </div>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="action">
-                Action
-            </div>
-            <div>
-                <ul class="img_action">
-                    {% for user in users %}
-                        <li>
-                            <div>
-                                <img src="../svg/modif.svg">
-                            </div>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
+        <div class="parent">
+            <div class="div1 sous_titre">Nom</div>
+            <div class="div2 sous_titre">Prenom</div>
+            <div class="div3 sous_titre">Mail</div>
+            <div class="div4 sous_titre">Action</div>
         </div>
+        <table>
+            {% for user in users %}
+            <tr>
+                <td>
+                    {{ user.getNom() }}
+                </td>
+                <td>
+                    {{ user.getPrenom() }}
+                </td>
+                <td>
+                    {{ user.getEmail() }}
+                </td>
+                <td>
+                    <img src="../svg/modif.svg">
+                    <img class="poubelle" src="../svg/poubelle.svg">
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
     </main>
 
 {% endblock %}
