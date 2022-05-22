@@ -30,7 +30,7 @@ class UserService {
         $hashedPassword = $this->passwordHasher->hashPassword($user, $password);
         $user->setPassword($hashedPassword);
         $user->setNom($nom);
-        $user->setPrenom($nom);
+        $user->setPrenom($prenom);
 
         $user->setRoles([]);
         $entityManager->persist($user);
