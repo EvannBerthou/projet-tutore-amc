@@ -12,8 +12,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    grid-gap: 2em;
     grid-auto-flow: row;
     text-align: center;
 }
@@ -61,15 +60,25 @@
 ul
 {
     list-style: none;
-    padding: 0%;
 }
 
 img
 {
     width: 2em;
+    vertical-align: middle;
 }
 
 li
 {
-    margin-bottom: 2em;
+    vertical-align: center;
+}
+
+.cache
+{
+    opacity: 0;
+}
+
+.img_action
+{
+    padding: 0%;
 }
