@@ -26,7 +26,8 @@ class UserController extends AbstractController {
         }
 
         $userService->addUser($mail, $nom, $prenom, $password);
-        return new Response('ok');
+        //TODO: Rediriger vers la liste des utilisateurs
+        return $this->redirectToRoute('app_admin_front_users');
     }
 
     #[Route('/login', name: 'app_user_login')]
