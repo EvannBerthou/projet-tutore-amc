@@ -26,7 +26,9 @@ class QcmFrontController extends AbstractController {
 
     private function forwardTo(string $routename) {
         $routes = $this->get('router')->getRouteCollection();
-        return $this->forward($routes->get($routename)->getDefaults()['_controller']);
+        return $this->forward($routes->get($routename)->getDefaults()['_controller'], [
+            'user' => $this->getUser()
+        ]);
     }
 
     #[Route('/mes_qcm', name: 'app_qcm_front_list')]

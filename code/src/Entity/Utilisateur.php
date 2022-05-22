@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use App\Repository\UserRepository;
+use Symfony\Component\Serializer\Annotation\Ignore;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface {
@@ -29,6 +30,9 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface {
     // Le mot de passe est stocké sous forme hashée.
     #[ORM\Column(type: 'string')]
     private $password;
+
+    #[ORM\OneToMany(targetEntity: QCM::class, mappedBy: "user")]
+    private $qcms;
 
     public function getId(): ?int {
         return $this->id;
@@ -117,4 +121,14 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface {
     public function getPrenom(): string {
         return $this->prenom;
     }
+
+    /*
+    public function getQCMS() {
+        return $this->qcms;
+    }
+
+    public function setQCMS($qcms) {
+        $this->qcms = $qcms;
+    }
+    */
 }

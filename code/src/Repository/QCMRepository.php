@@ -17,4 +17,10 @@ class QCMRepository extends ServiceEntityRepository {
             ->createQuery('SELECT MAX(q.id) FROM App\Entity\QCM q')
             ->getSingleScalarResult();
     }
+
+    public function getQCMsOfUser(int $user_id): array {
+        return $this->findBy(
+            ['user' => $user_id],
+        );
+    }
 }

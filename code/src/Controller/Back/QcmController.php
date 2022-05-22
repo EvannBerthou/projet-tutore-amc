@@ -2,6 +2,7 @@
 
 namespace App\Controller\Back;
 
+use App\Entity\Utilisateur;
 use App\Repository\QCMRepository;
 use App\Utils\QcmUtils;
 use Exception;
@@ -39,8 +40,8 @@ class QcmController extends AbstractController {
     }
 
     #[Route('/list', name: 'app_list_qcm')]
-    public function list_qcm(ManagerRegistry $doctrine): JsonResponse {
-        $qcms = $this->QCMRepository->findAll();
+    public function list_qcm(Utilisateur $user): JsonResponse {
+        $qcms = $this->QCMRepository->getQCMsOfUser($user->getId());
         return new JsonResponse($this->qcmUtils->serialize($qcms));
     }
 }
