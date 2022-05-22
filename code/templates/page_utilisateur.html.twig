@@ -1,13 +1,53 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig'%}
 
-{% block title %}{{ parent() }} - Page utilisateur{% endblock %}
-
-{% block main %} 
-    {{ block("menu", "menu.html.twig")}}
-    <h1 class='mes_qcm'>Mes QCM</h1>
-    <ul>
-        {% for qcm in qcm_list %}
-        <li><a href="{{ path('app_qcm_front_update', {id: qcm.id}) }}">{{ qcm.titre }}</a></li>
-        {% endfor %}
-    </ul>
+{% block title %}
+    {{ parent() }} - Liste des utilisateurs
 {% endblock %}
+
+{% block style %}
+    {{ parent() }}
+    <link href="{{ asset('style/liste_qcm.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block main %}
+    <nav>
+        {% block nav %}
+            {% include 'menu.html.twig' %}
+        {% endblock %}
+    </nav>
+    <main>
+        <div class="titre">
+            Mes QCM
+        </div>
+        <div class="tri">
+            Trier par :
+            <select>
+                <option value="0">Date de création</option>
+                <option value="1">Date de modification</option>
+                <option value="2">Ordre alphabétique</option>
+            </select>
+        </div>
+        <table>
+            {% for qcm in qcm_list %}
+                <tr>
+                    <td>
+                        {{ qcm.titre }}
+                    </td>
+                    <td>
+                        <a href="{{ path('app_qcm_front_update', {id: qcm.id}) }}">Modifier</a>
+                    </td>
+                    <td>
+                        <a href="#">Générer PDF</a>
+                    </td>
+                    <td>
+                        <a href="{{ path('app_qcm_front_mark', {id: qcm.id}) }}">Corriger</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </main>
+
+{% endblock %}
+
+
+
