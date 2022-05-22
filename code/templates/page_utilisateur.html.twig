@@ -7,7 +7,7 @@
     <h1 class='mes_qcm'>Mes QCM</h1>
     <ul>
         {% for qcm in qcm_list %}
-            <li>{{ qcm.titre }}</li>
+        <li><a href="{{ path('app_qcm_front_update', {id: qcm.id}) }}">{{ qcm.titre }}</a></li>
         {% endfor %}
     </ul>
 {% endblock %}
