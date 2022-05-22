@@ -19,7 +19,7 @@
     margin-left: 35em;
 }
 
-a
+.validation_button a
 {
     text-decoration: none;
     color: var(--light);
@@ -29,7 +29,7 @@ a
     margin-left: 10em;
 }
 
-a:hover
+.validation_button a:hover
 {
     color: var(--middle);
     transition: 0.5s;
