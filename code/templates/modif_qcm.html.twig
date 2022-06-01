@@ -25,24 +25,37 @@
 
         <div id="question_reponse"></div>
 
-        <div class="button_add_Q">
-            <input type="button" value="Ajouter une question" onClick="addQuestion(this)" />
-        </div>
-
-        <div class="button_visu">
-            <input type="button" value="Visualiser le QCM">
-        </div>
-
-        <div class="button_save">
-            <input type="button" value="Sauvegarder le QCM">
-        </div>
-
-        <div class="submitbutton" onclick="generate_pdf()">
-            <input type="button" value="Télécharger le QCM">
+        <div class="boutons_crea">
+            <p>
+            <div class="button_add_Q">
+                <input type="button" value="Ajouter une question" onClick="addQuestion(this)" />
+            </div>
+            </p>
+            <p>
+            <div class="button_visu" onclick="addOptions()">
+                <input type="button" value="Options">
+            </div>
+            </p>
+            <p>
+            <div class="button_save">
+                <input type="button" value="Sauvegarder le QCM">
+            </div>
+            </p>
+            <p>
+            <div class="submitbutton" onclick="generate_pdf()">
+                <input type="button" value="Télécharger le QCM">
+            </div>
+            </p>
         </div>
     </div>
 
     <script>
+        function addOptions() {
+            let newDiv = document.createElement('div');
+            newDiv.style.backgroundColor = 'blue';
+            document.getElementById('question_reponse').appendChild(newDiv);
+        }
+        
         function delAnswer(idDivReponse)
         {
             let elemDelet=document.getElementById(idDivReponse);

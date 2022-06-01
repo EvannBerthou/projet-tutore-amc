@@ -7,7 +7,7 @@
 .title input
 {
     box-sizing: border-box;
-    border: 2px solid #80B0BF;
+    border: 3px solid #80B0BF;
     background-color: var(--light);
     -webkit-transition: 0.5s;
     transition: 0.5s;
@@ -19,12 +19,13 @@
 
 .title input:focus
 {
-    border: 2px solid var(--dark);
+    border: 3px solid var(--dark);
 }
 
 .title
 {
-    margin: 5%;
+    margin: 4% 0 0 5%;
+    font-weight: bolder;
 }
 
 #question_reponse
@@ -96,77 +97,29 @@
     grid-template-rows: auto;
 }
 
-.submitbutton, .button_visu
+.boutons_crea
 {
-    grid-column: 2/2;
-    grid-row: 2/2;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 70%;
+    margin-top: 7%;
 }
 
-.button_add_Q
+.boutons_crea input
 {
-    grid-column: 2/2;
-    grid-row: 2/2;
-    z-index: -1;
-}
-
-.button_save
-{
-    grid-column: 2/2;
-    grid-row: 2/2;
-    z-index: -1;
-}
-
-.button_add_Q input
-{
-    border: none;
+    cursor: pointer;
     width: 160px;
-    padding: 15px;
+    padding: 9%;
     border-radius: 23px;
     background-color: var(--middle);
     color: var(--light);
-    position: fixed;
-    cursor: pointer;
-    z-index: -1;
+    margin: 6%;
+    border: none;
 }
 
-.button_save input
+p
 {
-    border: none;
-    width: 160px;
-    padding: 15px;
-    border-radius: 23px;
-    background-color: var(--middle);
-    color: var(--light);
-    position: fixed;
-    cursor: pointer;
-    margin-top: 60px;
-    z-index: -1;
-}
-
-.button_visu input
-{
-    border: none;
-    width: 160px;
-    padding: 15px;
-    border-radius: 23px;
-    background-color: var(--middle);
-    color: var(--light);
-    position: fixed;
-    margin-top: 120px;
-    cursor: pointer;
-    z-index: -1;
-}
-
-.submitbutton input
-{
-    border: none;
-    width: 160px;
-    padding: 15px;
-    border-radius: 23px;
-    background-color: var(--middle);
-    color: var(--light);
-    position: fixed;
-    margin-top: 180px;
-    cursor: pointer;
-    z-index: -1;
+    display: flex;
+    margin : 0;
 }
