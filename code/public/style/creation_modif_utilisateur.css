@@ -12,11 +12,8 @@
 {
     background-color: var(--dark);
     border-radius: 23px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin-top: 15em;
     width: 50%;
-    margin-left: 35em;
+    padding: 1%;
 }
 
 .validation_button a
@@ -80,5 +77,23 @@ input
     border-radius: 23px;
     text-align: center;
     padding: 0.5em;
+    flex: 1 0 auto;
 }
 
+.centre
+{
+    display: flex;
+    justify-content: center;
+}
+
+.alignement
+{
+    display: flex;
+    flex-direction: column;
+}
+
+p
+{
+    display: flex;
+    margin : 0;
+}

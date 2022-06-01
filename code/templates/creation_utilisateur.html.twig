@@ -20,30 +20,36 @@
         <div class="titre">
             Création d'un nouvel utilisateur
         </div>
-        <div class="container">
+        <div class="centre">
+            <div class="container">
+                <form method="POST" action="{{ path('app_user_new_user') }}" class="alignement">
+                    <p>
+                    <label for="mail">Adresse mail</label>
+                    <input type="email" size="30" name="mail" placeholder="Adresse mail" required>
+                    </p>
+                    <p>
+                    <label>Nom</label>
+                    <input type="text" size="30" name="nom" placeholder="Nom" required>
+                    </p>
+                    <p>
+                    <label>Prénom</label>
+                    <input type="text" size="30" name="prenom" placeholder="Prénom" required>
+                    </p>
+                    <p>
+                    <label>Mot de passe</label>
+                    <input type="password" size="30" name="password" placeholder="Mot de passe" required>
+                    </p>
+                    <p>
+                    <label class="span">Confirmer le mot de passe</label>
+                    <input type="password" size="30" name="confirmPassword" placeholder="Confirmer le mot de passe" required>
+                    </p>
+                    <div class="validation_button">
+                        <input type="submit" value="VALIDER">
+                        <a href="{{ path('app_admin_front_users') }}">Annuler</a>
+                    </div>
+                </form>
 
-            <form method="POST" action="{{ path('app_user_new_user') }}">
-                <label for="mail">Adresse mail</label>
-                <input type="email" size="30" name="mail" placeholder="Adresse mail" required>
-                <br>
-                <label>Nom</label>
-                <input type="text" size="30" name="nom" placeholder="Nom" required>
-                <br>
-                <label>Prénom</label>
-                <input type="text" size="30" name="prenom" placeholder="Prénom" required>
-                <br>
-                <label>Mot de passe</label>
-                <input type="password" size="30" name="password" placeholder="Mot de passe" required>
-                <br>
-                <label class="span">Confirmer le mot de passe</label>
-                <input type="password" size="30" name="confirmPassword" placeholder="Confirmer le mot de passe" required>
-
-                <div class="validation_button">
-                    <input type="submit" value="VALIDER">
-                    <a href="{{ path('app_admin_front_users') }}">Annuler</a>
-                </div>
-            </form>
-
+            </div>
         </div>
     </main>
 
