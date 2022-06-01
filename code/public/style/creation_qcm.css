@@ -106,12 +106,14 @@
 {
     grid-column: 2/2;
     grid-row: 2/2;
+    z-index: -1;
 }
 
 .button_save
 {
     grid-column: 2/2;
     grid-row: 2/2;
+    z-index: -1;
 }
 
 .button_add_Q input
@@ -124,6 +126,7 @@
     color: var(--light);
     position: fixed;
     cursor: pointer;
+    z-index: -1;
 }
 
 .button_save input
@@ -137,6 +140,7 @@
     position: fixed;
     cursor: pointer;
     margin-top: 60px;
+    z-index: -1;
 }
 
 .button_visu input
@@ -150,6 +154,7 @@
     position: fixed;
     margin-top: 120px;
     cursor: pointer;
+    z-index: -1;
 }
 
 .submitbutton input
@@ -163,4 +168,5 @@
     position: fixed;
     margin-top: 180px;
     cursor: pointer;
+    z-index: -1;
 }
