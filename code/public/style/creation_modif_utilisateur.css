@@ -19,30 +19,7 @@
     margin-left: 35em;
 }
 
-.user_box
-{
-    text-align: left;
-    color: var(--light);
-    padding-left: 1.5em;
-}
-
-.user_box input
-{
-    padding: 10px;
-    font-size: medium;
-    margin: 1em;
-    border: none;
-    background: var(--light);
-    border-radius: 23px;
-    text-align: center;
-}
-
-.container .user_box
-{
-    position: relative;
-}
-
-a
+.validation_button a
 {
     text-decoration: none;
     color: var(--light);
@@ -52,7 +29,7 @@ a
     margin-left: 10em;
 }
 
-a:hover
+.validation_button a:hover
 {
     color: var(--middle);
     transition: 0.5s;
@@ -83,8 +60,25 @@ a:hover
     transition: .5s;
 }
 
-.span
+label
 {
+    display: block;
+    width: 15em;
+    float: left;
+    color: var(--light);
+    padding-left: 1.5em;
+    padding-top: 0.5em;
+    margin-top: 1em;
+}
 
+input
+{
+    font-size: medium;
+    margin: 1em;
+    border: none;
+    background: var(--light);
+    border-radius: 23px;
+    text-align: center;
+    padding: 0.5em;
 }
 

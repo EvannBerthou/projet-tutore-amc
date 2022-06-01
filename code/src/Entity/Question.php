@@ -56,4 +56,21 @@ class Question {
     public function getReponses() {
         return $this->reponses->getValues();
     }
+
+    public function toAMCTXT(): string {
+        $str = $this->getEnonceWithPrefix() . "\n";
+        foreach ($this->getReponses() as $reponse) {
+            $str .= $reponse->toAMCTXT();
+        }
+        return $str . "\n";
+    }
+
+    private function getEnonceWithPrefix(): string {
+        return match ($this->type) {
+            QuestionTypeEnum::TYPE_SIMPLE => "* {$this->enonce}",
+            QuestionTypeEnum::TYPE_MULTIPLE => "** {$this->enonce}",
+            QuestionTypeEnum::TYPE_OUVERTE => "*<lines=4>{$this->enonce}\n-[0]{0} O\n-[P]{1}\n+[V]{2} V",
+            default => "*"
+        };
+    }
 }

@@ -79,11 +79,7 @@ class QCM {
         HERODOC;
 
         foreach ($this->getQuestions() as $question) {
-            $data .= "* {$question->getEnonce()}\n";
-            foreach ($question->getReponses() as $reponse) {
-                $prefix = $reponse->isCorrect() ? "+" : "-";
-                $data .= "$prefix {$reponse->getTexte()}\n";
-            }
+            $data .= $question->toAMCTXT();
         }
 
         //return "** question 1\n+ réponse 1\n- réponse 2\n\n* question 2\n- réponse 1\n+ réponse 2";

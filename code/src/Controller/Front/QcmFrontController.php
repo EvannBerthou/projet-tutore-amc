@@ -47,7 +47,6 @@ class QcmFrontController extends AbstractController {
     #[Route('/modif_qcm', name: 'app_qcm_new')]
     public function newQCM(): Response {
         $id = $this->qcmUtils->getNextId();
-        //TODO: Créer un nouveau QCM pour l'utilisateur
         return $this->redirectToRoute('app_qcm_front_update', ['id' => $id]);
     }
 
@@ -57,11 +56,11 @@ class QcmFrontController extends AbstractController {
         $session = $this->getUser();
         $qcm = $this->qcmUtils->getQcm($id);
     
-        if ($qcm->getUser()->getId() !== $session->getId()) {
+        if ($qcm !== null && $qcm->getUser()->getId() !== $session->getId()) {
             throw new AccessDeniedHttpException("Vous n'êtes pas le propriétaire de ce QCM");
         }
 
-        if (!$qcm) {
+        if ($qcm === null) {
             $qcm = new QCM();
         }
 

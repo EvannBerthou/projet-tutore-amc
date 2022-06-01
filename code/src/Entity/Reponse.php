@@ -32,4 +32,9 @@ class Reponse {
     public function isCorrect(): bool {
         return $this->estCorrect;
     }
+
+    public function toAMCTXT(): string {
+        $prefix = $this->isCorrect() ? "+" : "-";
+        return "$prefix {$this->getTexte()}\n";
+    }
 }
