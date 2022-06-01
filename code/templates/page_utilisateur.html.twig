@@ -31,6 +31,9 @@
             {% for qcm in qcm_list %}
                 <tr>
                     <td>
+                        {{ qcm.creationDateString() }}
+                    </td>
+                    <td>
                         {{ qcm.titre }}
                     </td>
                     <td>

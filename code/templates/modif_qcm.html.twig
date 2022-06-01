@@ -183,7 +183,7 @@
         }
 
         function generate_pdf() {
-            fetch("http://localhost:8000/api/qcm/generate/{{qcm_id}}")
+            fetch(window.location.origin + "/api/qcm/generate/{{qcm_id}}")
                 .then(res => res.blob())
                 .then(data => {
                     const file = new Blob([data], {type: 'application/pdf'});

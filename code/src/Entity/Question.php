@@ -69,7 +69,7 @@ class Question {
         return match ($this->type) {
             QuestionTypeEnum::TYPE_SIMPLE => "* {$this->enonce}",
             QuestionTypeEnum::TYPE_MULTIPLE => "** {$this->enonce}",
-            QuestionTypeEnum::TYPE_OUVERTE => "*<lines=4>{$this->enonce}\n-[0]{0} O\n-[P]{1}\n+[V]{2} V",
+            QuestionTypeEnum::TYPE_OUVERTE => "*<lines=4>{$this->enonce}\n-[0]{0} O\n-[P]{1} P\n+[V]{2} V",
             default => "*"
         };
     }

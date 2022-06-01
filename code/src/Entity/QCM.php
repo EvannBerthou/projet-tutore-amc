@@ -49,6 +49,11 @@ class QCM {
         return $this->date;
     }
 
+    //TODO: Voir pourquoi ce n'est plus un DateTime à ce moment
+    public function creationDateString() {
+        return date("d/m/Y", $this->date["timestamp"]);
+    }
+
     public function setDate($date) {
         $this->date = $date;
     }
