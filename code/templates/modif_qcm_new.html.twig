@@ -1,0 +1,87 @@
+{% extends 'base.html.twig'%}
+
+{% block title %}
+    {{ parent() }} - Créer un QCM
+{% endblock %}
+
+{% block style %}
+    {{ parent() }}
+    <link href="{{ asset('style/creation_qcm.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="{{ asset('js/modif_qcm.js') }}" defer></script>
+{% endblock %}
+
+{% block main %}
+    {% block nav %}
+       {% include 'menu.html.twig' %}
+    {% endblock %}
+
+    <template id="questionTemplate">
+        <div class="question">
+            <div>
+                <label id="questionTitre"> </label>
+                <input type="text" placeholder="Entrez une question ici" size="50" />
+
+                <div id="reponses">
+                </div>
+
+                <input id="addReponse" type="button" value="Ajouter une réponse" />
+                <input id="deleteQuestion" type="button" value="Supprimer la question" />
+            </div>
+        </div>
+    </template>
+
+    <template id="reponseTemplate">
+        <div>
+            <label id="reponseTitre"> </label>
+            <input type="checkbox" title="Cochez la/les bonne(s) réponses" />
+            <input class="text_reponse" placeholder="Entrez une réponse ici" size="50" />
+            <input type="button" value="Supprimer la réponse" />
+        </div>
+    </template>
+
+
+    <!--CREATION QCM-->
+
+    <div class="grid">
+        <div class="title">
+            <label class="titreQCM">Titre du QCM</label>
+            <input type="text" placeholder="Entrez le titre du QCM ici" size="50" name="inputtitreQCM" />
+        </div>
+
+        <div id="question_reponse">
+            {% for question in qcm.questions %}
+            {% include 'question_template.html.twig' with {'question': question, 'id': loop.index} %}
+            {% endfor %}
+        </div>
+
+        <div class="button_add_Q">
+            <input type="button" value="Ajouter une question" onClick="addQuestion()" />
+        </div>
+
+        <div class="button_visu">
+            <input type="button" value="Visualiser le QCM">
+        </div>
+
+        <div class="button_save">
+            <input type="button" value="Sauvegarder le QCM">
+        </div>
+
+        <div class="submitbutton">
+            <input type="button" value="Télécharger le QCM" onclick="generate_pdf()">
+        </div>
+    </div>
+
+    <script>
+        function generate_pdf() {
+            fetch(window.location.origin + "/api/qcm/generate/{{qcm_id}}")
+                .then(res => res.blob())
+                .then(data => {
+                    const file = new Blob([data], {type: 'application/pdf'});
+                    window.open(window.URL.createObjectURL(file));
+                });
+        }
+    </script>
+{% endblock %}
