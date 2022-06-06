@@ -64,7 +64,7 @@ class QcmFrontController extends AbstractController {
             $qcm = new QCM();
         }
 
-        return $this->render("modif_qcm.html.twig", [
+        return $this->render("modif_qcm_new.html.twig", [
             'session' => $session, 
             'qcm_id' => $id, 
             'qcm' => $qcm
