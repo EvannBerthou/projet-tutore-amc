@@ -8,6 +8,9 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
+use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
+use Symfony\Component\PropertyInfo\PropertyInfoExtractor;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -62,8 +65,18 @@ class QcmUtils {
         $encoders = [new JsonEncoder()];
         $normalizers = [new ObjectNormalizer(), new ArrayDenormalizer()];
         $serializer = new Serializer($normalizers, $encoders);
-        $data = json_decode($response->getContent());
+        $data = json_decode($response->getContent());   
         $qcms = $serializer->deserialize($data, 'App\Entity\QCM[]', 'json');
+        return $qcms;
+    }
+
+    public function deserializeFromJSON($json) {
+        $encoders = [new JsonEncoder()];
+        $extractor = new PropertyInfoExtractor([], [new PhpDocExtractor(), new ReflectionExtractor()]);
+        $normalizers = [new ArrayDenormalizer(), new ObjectNormalizer(null, null, null, $extractor)];
+        $serializer = new Serializer($normalizers, $encoders);
+        $qcms = $serializer->deserialize($json, QCM::class, 'json');
+        dd($qcms);
         return $qcms;
     }
 }

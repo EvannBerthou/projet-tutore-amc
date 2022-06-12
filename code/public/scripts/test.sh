@@ -24,7 +24,7 @@ cd $PROJECT_DIR
 # Possible perte de perf à cause d'une utilisation du disque dur au lieu de passer par la ram
 # Écriture du QCM dans un fichier
  echo -e "$1" > tmp
-auto-multiple-choice prepare --mode s --data data --filter plain --n-copies 1 tmp > /dev/null 2> /dev/null
+auto-multiple-choice prepare --mode s --data data --filter plain --n-copies 1 tmp > /tmp/log.txt 2> /tmp/error.txt
 
 # Nettoyage des fichiers crées
 rm tmp

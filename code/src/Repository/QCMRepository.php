@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\QCM;
+use App\Entity\Question;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -22,5 +23,11 @@ class QCMRepository extends ServiceEntityRepository {
         return $this->findBy(
             ['user' => $user_id],
         );
+    }
+
+    public function saveQCM($qcm) {
+        $entityManager = $this->getEntityManager();
+        $entityManager->merge($qcm);
+        $entityManager->flush();
     }
 }

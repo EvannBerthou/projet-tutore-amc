@@ -2,8 +2,8 @@
 
 namespace App\Entity;
 
+use App\Repository\ReponseRepository;
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\ReponseRepository;
 
 #[ORM\Entity(repositoryClass: ReponseRepository::class)]
 class Reponse {
@@ -25,12 +25,32 @@ class Reponse {
         return $this->id;
     }
 
-    public function getTexte(): string {
+    public function setId(int $id) {
+        $this->id = $id;
+    }
+
+    public function getTexte(): ?string {
         return $this->texte;
+    }
+
+    public function setTexte(string $texte) {
+        $this->texte = $texte;
     }
 
     public function isCorrect(): bool {
         return $this->estCorrect;
+    }
+
+    public function setEstCorrect(bool $estCorrect) {
+        $this->estCorrect = $estCorrect;
+    }
+
+    public function setQuestion($question) {
+        $this->question = $question;
+    }
+
+    public function getQuestion() {
+        return $this->question;
     }
 
     public function toAMCTXT(): string {

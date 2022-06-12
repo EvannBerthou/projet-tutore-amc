@@ -19,7 +19,7 @@ class QCM {
     #[ORM\Column(type: 'datetime')]
     private $date;
 
-    #[ORM\OneToMany(targetEntity: Question::class, mappedBy: 'qcm')]
+    #[ORM\OneToMany(targetEntity: Question::class, mappedBy: 'qcm', cascade:["persist"])]
     private $questions;
 
     #[Orm\ManyToOne(targetEntity: Utilisateur::class, inversedBy: 'qcms')]
@@ -62,8 +62,16 @@ class QCM {
         return $this->questions->getValues();
     }
 
+    public function getQuestionsArray() {
+        return $this->questions;
+    }
+
     public function setQuestions($questions) {
         $this->questions = $questions;
+    }
+
+    public function addQuestion($question) {
+        $this->questions->add($question);
     }
 
     public function getUser() {

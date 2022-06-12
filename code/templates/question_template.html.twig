@@ -1,15 +1,15 @@
-<div class="question" id="Q-{{id}}">
+<div class="question" id="{{question.id}}" name="Q-{{id}}">
     <div>
-        <label id="questionTitre"> Question {{ question.id }} : </label>
-        <input type="text" placeholder="Entrez une question ici" size="50" />
+        <label id="questionTitre"> Question {{ id }} : </label>
+        <input id="enonceQuestion" type="text" placeholder="Entrez une question ici" size="50" value="{{question.enonce}}" />
 
         <div id="reponses">
             {% for reponse in question.reponses %}
-            <div id="REP-{{id}}-{{loop.index}}">
+            <div id="{{reponse.id}}" name="REP-{{id}}-{{loop.index}}" class="reponse">
                 <label> Reponse {{ loop.index }} </label>
-                <input name="C-{{id}}-{{loop.index}}" type="checkbox" title="Cochez la/les bonne(s) réponses" {{reponse.isCorrect ? 'checked' : ''}}>
+                <input type="checkbox" title="Cochez la/les bonne(s) réponses" {{reponse.isCorrect ? 'checked' : ''}}>
 
-                <input name="R-{{id}}-{{loop.index}}" class="text_reponse" placeholder="Entrez une réponse ici" size="50" />
+                <input class="text_reponse" placeholder="Entrez une réponse ici" size="50" value="{{reponse.texte}}"/>
 
                 <input type="button" value="Supprimer la réponse" onclick="deleteReponse({{id}}, {{loop.index}})"/>
             </div>

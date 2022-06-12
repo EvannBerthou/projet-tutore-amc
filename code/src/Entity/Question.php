@@ -19,7 +19,7 @@ class Question {
     #[ORM\Column(type: 'string', length: 255)]
     private $enonce;
 
-    #[ORM\OneToMany(targetEntity: Reponse::class, mappedBy: 'question')]
+    #[ORM\OneToMany(targetEntity: Reponse::class, mappedBy: 'question', cascade:["persist"])]
     private $reponses;
 
     #[ORM\Column(name: 'type', type: 'string', length: 255, nullable: false)]
@@ -49,12 +49,35 @@ class Question {
         return $this->id;
     }
 
-    public function getEnonce(): string {
+    public function setId(int $id) {
+        $this->id = $id;
+    }
+
+    public function getEnonce(): ?string {
         return $this->enonce;
+    }
+
+    public function setEnonce(string $enonce) {
+        $this->enonce = $enonce;
     }
 
     public function getReponses() {
         return $this->reponses->getValues();
+    }
+
+    public function getReponsesArray() {
+        return $this->reponses;
+    }
+
+    public function setReponses($reponses) {
+        $this->reponses = new ArrayCollection($reponses);
+        $i = 0;
+        foreach ($this->getReponses() as $reponse) {
+            $i += $reponse->isCorrect();
+        }
+        if ($i == 0) $this->type = 'ouverte';
+        else if ($i == 1) $this->type = 'simple';
+        else $this->type = 'multiple';
     }
 
     public function toAMCTXT(): string {
@@ -63,6 +86,10 @@ class Question {
             $str .= $reponse->toAMCTXT();
         }
         return $str . "\n";
+    }
+
+    public function setQCM($qcm) {
+        $this->qcm = $qcm;
     }
 
     private function getEnonceWithPrefix(): string {

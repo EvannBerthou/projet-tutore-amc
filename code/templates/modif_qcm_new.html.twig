@@ -22,7 +22,7 @@
         <div class="question">
             <div>
                 <label id="questionTitre"> </label>
-                <input type="text" placeholder="Entrez une question ici" size="50" />
+                <input id="enonceQuestion" type="text" placeholder="Entrez une question ici" size="50" />
 
                 <div id="reponses">
                 </div>
@@ -34,7 +34,7 @@
     </template>
 
     <template id="reponseTemplate">
-        <div>
+        <div class="reponse">
             <label id="reponseTitre"> </label>
             <input type="checkbox" title="Cochez la/les bonne(s) réponses" />
             <input class="text_reponse" placeholder="Entrez une réponse ici" size="50" />
@@ -45,7 +45,7 @@
 
     <!--CREATION QCM-->
 
-    <div class="grid">
+    <div class="grid" data-id="{{qcm_id}}">
         <div class="title">
             <label class="titreQCM">Titre du QCM</label>
             <input type="text" placeholder="Entrez le titre du QCM ici" size="50" name="inputtitreQCM" />
@@ -66,22 +66,11 @@
         </div>
 
         <div class="button_save">
-            <input type="button" value="Sauvegarder le QCM">
+            <input type="button" value="Sauvegarder le QCM" onclick="save_qcm()">
         </div>
 
         <div class="submitbutton">
             <input type="button" value="Télécharger le QCM" onclick="generate_pdf()">
         </div>
     </div>
-
-    <script>
-        function generate_pdf() {
-            fetch(window.location.origin + "/api/qcm/generate/{{qcm_id}}")
-                .then(res => res.blob())
-                .then(data => {
-                    const file = new Blob([data], {type: 'application/pdf'});
-                    window.open(window.URL.createObjectURL(file));
-                });
-        }
-    </script>
 {% endblock %}

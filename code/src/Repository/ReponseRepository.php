@@ -10,4 +10,13 @@ class ReponseRepository extends ServiceEntityRepository {
     public function __construct(ManagerRegistry $registry) {
         parent::__construct($registry, Reponse::class);
     }
+
+    public function saveReponse($reponse) {
+        $entityManager = $this->getEntityManager();
+        if ($reponse->getId() === 0) {
+            $entityManager->persist($reponse);
+        } else {
+            $entityManager->merge($reponse);
+        }
+    }
 }

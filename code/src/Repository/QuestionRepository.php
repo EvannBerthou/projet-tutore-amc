@@ -10,4 +10,14 @@ class QuestionRepository extends ServiceEntityRepository {
     public function __construct(ManagerRegistry $registry) {
         parent::__construct($registry, Question::class);
     }
+
+    public function saveQuestion($question) {
+        $entityManager = $this->getEntityManager();
+        if ($question->getId() === 0) {
+            $entityManager->persist($question);
+        } else {
+            $entityManager->merge($question);
+        }
+        $entityManager->flush();
+    }
 }
