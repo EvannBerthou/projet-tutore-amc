@@ -67,11 +67,27 @@ class QcmController extends AbstractController {
     public function save_qcm(int $id, Request $request): Response {
         $oldQCM = $this->qcmUtils->getQcm($id);
         $qcm = $this->serializer->deserialize($request->getContent(), QCM::class, 'json');
+
+        $oldQuestionsIds = array_map(fn($question) => $question->getId(), $oldQCM->getQuestions());
+        $newQuestionsIds = array_map(fn($question) => $question->getId(), $qcm->getQuestionsArray());
+        $diff = array_diff($oldQuestionsIds, $newQuestionsIds);
+        foreach ($diff as $questionToDelete) {
+            $this->QuestionRepository->deleteQuestion($questionToDelete);
+        }
+
         foreach ($qcm->getQuestionsArray() as $question) {
             $question->setQCM($oldQCM);
             $this->QuestionRepository->saveQuestion($question);
+            $dbQuestion = $this->QuestionRepository->find($question->getId());
+
+            $oldReponsesIds = array_map(fn($reponse) => $reponse->getId(), $dbQuestion->getReponses());
+            $newReponsesIds = array_map(fn($reponse) => $reponse->getId(), $question->getReponses());
+            $diff = array_diff($oldReponsesIds, $newReponsesIds);
+            foreach ($diff as $reponseToDelete) {
+                $this->ReponseRepository->deleteReponse($reponseToDelete);
+            }
+
             foreach ($question->getReponsesArray() as $reponse) {
-                $dbQuestion = $this->QuestionRepository->find($question->getId());
                 $reponse->setQuestion($dbQuestion);
                 $this->ReponseRepository->saveReponse($reponse);
             }

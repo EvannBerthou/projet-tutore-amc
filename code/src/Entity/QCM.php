@@ -19,7 +19,7 @@ class QCM {
     #[ORM\Column(type: 'datetime')]
     private $date;
 
-    #[ORM\OneToMany(targetEntity: Question::class, mappedBy: 'qcm', cascade:["persist"])]
+    #[ORM\OneToMany(targetEntity: Question::class, mappedBy: 'qcm', cascade:["persist", "remove"])]
     private $questions;
 
     #[Orm\ManyToOne(targetEntity: Utilisateur::class, inversedBy: 'qcms')]

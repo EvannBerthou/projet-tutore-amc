@@ -19,4 +19,11 @@ class ReponseRepository extends ServiceEntityRepository {
             $entityManager->merge($reponse);
         }
     }
+
+    public function deleteReponse($reponse) {
+        $reponseBD = $this->find($reponse);
+        $entityManager = $this->getEntityManager();
+        $entityManager->remove($reponseBD);
+        $entityManager->flush();
+    }
 }

@@ -26,7 +26,7 @@ function deleteQuestion(questionId) {
     divParent.removeChild(questionToDel);
     for (let i = 1; i <= divParent.children.length; i++) {
         const reponse = divParent.children[i-1];
-        reponse.setAttribute('id', `${i}`);
+        reponse.setAttribute('name', `Q-${i}`);
         reponse.querySelector('label').innerText = `Question ${i}`;
         reponse.querySelector("#addReponse").onclick = () => addReponse(i);
         reponse.querySelector("#deleteQuestion").onclick = () => deleteQuestion(i);

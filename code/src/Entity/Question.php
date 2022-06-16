@@ -19,7 +19,7 @@ class Question {
     #[ORM\Column(type: 'string', length: 255)]
     private $enonce;
 
-    #[ORM\OneToMany(targetEntity: Reponse::class, mappedBy: 'question', cascade:["persist"])]
+    #[ORM\OneToMany(targetEntity: Reponse::class, mappedBy: 'question', cascade:["persist","remove"])]
     private $reponses;
 
     #[ORM\Column(name: 'type', type: 'string', length: 255, nullable: false)]
