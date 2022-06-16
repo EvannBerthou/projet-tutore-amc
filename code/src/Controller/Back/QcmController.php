@@ -17,6 +17,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\QCM;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer;
 use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
@@ -37,7 +38,8 @@ class QcmController extends AbstractController {
         QCMRepository $QCMRepository, 
         QuestionRepository $QuestionRepository, 
         ReponseRepository $ReponseRepository, 
-        SerializerInterface $serializer) {
+        SerializerInterface $serializer,
+    ){
         $this->qcmUtils = $qcmUtils;
         $this->QCMRepository = $QCMRepository;
         $this->QuestionRepository = $QuestionRepository;
@@ -58,7 +60,9 @@ class QcmController extends AbstractController {
     }
 
     #[Route('/list', name: 'app_list_qcm')]
-    public function list_qcm(Utilisateur $user): JsonResponse {
+    public function list_qcm(): JsonResponse {
+        /** @var Utilisateur $user */
+        $user = $this->getUser();
         $qcms = $this->QCMRepository->getQCMsOfUser($user->getId());
         return new JsonResponse($this->qcmUtils->serialize($qcms));
     }

@@ -23,6 +23,7 @@ class QCM {
     private $questions;
 
     #[Orm\ManyToOne(targetEntity: Utilisateur::class, inversedBy: 'qcms')]
+    #[Ignore]
     private $user;
 
     public function __construct() {

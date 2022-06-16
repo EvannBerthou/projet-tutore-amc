@@ -12,6 +12,7 @@ use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
 use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\PropertyInfo\PropertyInfoExtractor;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
@@ -55,7 +56,13 @@ class QcmUtils {
 
     public function serialize($qcms) {
         $encoders = [new JsonEncoder()];
-        $normalizers = [new ObjectNormalizer()];
+        $defaultContext = [
+            AbstractNormalizer::CIRCULAR_REFERENCE_HANDLER => function ($object, $format, $context) {
+                return $object->getId();
+            },
+        ];
+        $normalizers = [new ObjectNormalizer(null, null, null, null, null, null, $defaultContext)];
+
         $serializer = new Serializer($normalizers, $encoders);
         $jsonContent = $serializer->serialize($qcms, 'json');
         return $jsonContent;
