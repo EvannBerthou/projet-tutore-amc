@@ -40,7 +40,7 @@
                         <a href="{{ path('app_qcm_front_update', {id: qcm.id}) }}">Modifier</a>
                     </td>
                     <td>
-                        <a href="#">Générer PDF</a>
+                        <a href="{{ path('app_generate_qcm', {id: qcm.id}) }}">Générer PDF</a>
                     </td>
                     <td>
                         <a href="{{ path('app_qcm_front_mark', {id: qcm.id}) }}">Corriger</a>
