@@ -57,20 +57,22 @@
             {% endfor %}
         </div>
 
-        <div class="button_add_Q">
-            <input type="button" value="Ajouter une question" onClick="addQuestion()" />
-        </div>
+        <div class="boutons_crea">
+            <div class="button_form">
+                <input type="button" value="Ajouter une question" onClick="addQuestion()" />
+            </div>
 
-        <div class="button_visu">
-            <input type="button" value="Visualiser le QCM">
-        </div>
+            <div class="button_form">
+                <input type="button" value="Visualiser le QCM">
+            </div>
 
-        <div class="button_save">
-            <input type="button" value="Sauvegarder le QCM" onclick="save_qcm()">
-        </div>
+            <div class="button_form">
+                <input type="button" value="Sauvegarder le QCM" onclick="save_qcm()">
+            </div>
 
-        <div class="submitbutton">
-            <input type="button" value="Télécharger le QCM" onclick="generate_pdf()">
+            <div class="button_form">
+                <input type="button" value="Télécharger le QCM" onclick="generate_pdf()">
+            </div>
         </div>
     </div>
 {% endblock %}

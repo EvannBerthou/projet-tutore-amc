@@ -106,16 +106,17 @@
     margin-top: 7%;
 }
 
-.boutons_crea input
+.button_form input
 {
     cursor: pointer;
-    width: 160px;
-    padding: 9%;
+    width: 12em;
+    padding: 4%;
     border-radius: 23px;
-    background-color: var(--middle);
+    background-color: var(--dark);
     color: var(--light);
-    margin: 6%;
     border: none;
+    margin: 4%;
+    z-index: -1;
 }
 
 p
