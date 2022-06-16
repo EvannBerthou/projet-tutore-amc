@@ -84,11 +84,14 @@
 #enonceQuestion::placeholder
 {
     color: var(--light);
+    font-style: italic;
 }
 
 .text_reponse::placeholder
 {
     color: var(--light);
+    font-style: italic;
+
 }
 
 .text_reponse
