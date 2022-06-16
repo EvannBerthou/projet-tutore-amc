@@ -1,0 +1,24 @@
+{% extends 'base.html.twig'%}
+
+{% block title %}
+    {{ parent() }} - Erreur
+{% endblock %}
+
+{% block style %}
+    {{ parent() }}
+    <link href="{{ asset('style/erreur.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block main %}
+    <main>
+        <div class="bloc">
+            <p class="erreur">
+                {{ status_code }}
+            </p>
+            Oops ! Une erreur est survenue...
+            <br>
+            <a href="{{ path('app_home_front_user') }}">Revenir à la page d'accueil</a>
+        </div>
+    </main>
+
+{% endblock %}

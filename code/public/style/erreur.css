@@ -1,0 +1,24 @@
+.bloc
+{
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    color: var(--dark);
+    font-size: x-large;
+}
+
+a
+{
+    text-decoration: none;
+    color: var(--dark);
+}
+
+a:hover
+{
+    text-decoration: underline;
+}
+
+.erreur
+{
+    font-size: 5em;
+}

@@ -102,4 +102,10 @@ a:hover
     transition: .5s;
 }
 
-
+.mess_erreur
+{
+    color: red;
+    font-weight: bold;
+    font-style: italic;
+    padding-left: 20%;
+}

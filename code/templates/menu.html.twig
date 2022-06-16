@@ -1,13 +1,33 @@
 {% block menu %}
-    <div class="dropdown">
-        <span class='hello_user'>Bienvenue {{ session.prenom|default('user') }} </span>
-        <button class="boutonmenuprincipal"><img src="{{ asset('svg/user.svg') }}" alt="icone utilisateur"></button>
-        <div class="dropdown-child">
+    <script>
+        function openNav() {
+            document.getElementById(
+                "myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById(
+                "myNav").style.width = "0%";
+        }
+    </script>
+
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)"
+           class="closebtn" onclick="closeNav()">
+            ×
+        </a>
+        <div class="overlay-content">
             <a href="{{ path('app_qcm_front_list') }}">Mes QCM </a>
             <a href="{{ path('app_qcm_new') }}">Créer un QCM</a>
             <a href="{{ path('app_qcm_front_mark') }}">Corriger un QCM</a>
-            <a href="#">Paramètres</a>
+            <a href="./directory/yourfile.pdf" download="manuel_utilisateur_BETA">Télécharger le manuel utilisateur</a>
             <a href="{{ path('app_logout') }}">Déconnexion</a>
         </div>
     </div>
+
+    <span class="nav_button" onclick="openNav()">
+        <span class='hello_user'>Bienvenue {{ session.prenom|default('user') }} </span>
+        <button class="boutonmenuprincipal"><img src="{{ asset('svg/user.svg') }}" alt="icone utilisateur"></button>
+    </span>
+
 {% endblock %}
