@@ -31,6 +31,24 @@ class UserController extends AbstractController {
         return $this->redirectToRoute('app_admin_front_users');
     }
 
+    #[Route('/{id}', name: 'app_user_update', methods: ['POST'])]
+    public function updateUser(int $id, Request $request, LoggerInterface $logger, UserService $userService): Response {
+        $mail = $request->request->get('mail');
+        $nom = $request->request->get('nom');
+        $prenom = $request->request->get('prenom');
+        $password = $request->request->get('password');
+        $confirmPassword = $request->request->get('confirmPassword');
+
+        //TODO: Renvoyer un message d'erreur
+        if (strcmp($password, $confirmPassword) != 0) {
+            return new Exception();
+        }
+
+        $userService->updateUser($id, $mail, $nom, $prenom, $password);
+        //TODO: Rediriger vers la liste des utilisateurs
+        return $this->redirectToRoute('app_admin_front_users');
+    }
+
     #[Route('/login', name: 'app_user_login')]
     public function userLogin(AuthenticationUtils $authenticationUtils): Response {
         return new Response($authenticationUtils->getLastAuthenticationError());

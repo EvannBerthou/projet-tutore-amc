@@ -22,22 +22,21 @@
         </div>
         <div class="centre">
             <div class="container">
-
-                <form method="POST" action="{{ path('app_user_new_user') }}">
+                <form method="POST" action="{{ path('app_user_update', {id: id}) }}">
                     <label for="mail">Adresse mail</label>
-                    <input type="email" size="30" name="mail" placeholder="Adresse mail" required>
+                    <input type="email" size="30" name="mail" placeholder="Adresse mail" required value="{{user.email}}">
                     <br>
                     <label>Nom</label>
-                    <input type="text" size="30" name="nom" placeholder="Nom" required>
+                    <input type="text" size="30" name="nom" placeholder="Nom" required value="{{user.nom}}">
                     <br>
                     <label>Prénom</label>
-                    <input type="text" size="30" name="prenom" placeholder="Prénom" required>
+                    <input type="text" size="30" name="prenom" placeholder="Prénom" required value="{{user.prenom}}">
                     <br>
                     <label>Mot de passe</label>
-                    <input type="password" size="30" name="password" placeholder="Mot de passe" required>
+                    <input type="password" size="30" name="password" placeholder="Mot de passe" >
                     <br>
                     <label class="span">Confirmer le mot de passe</label>
-                    <input type="password" size="30" name="confirmPassword" placeholder="Confirmer le mot de passe" required>
+                    <input type="password" size="30" name="confirmPassword" placeholder="Confirmer le mot de passe" >
 
                     <div class="validation_button">
                         <input type="submit" value="VALIDER">

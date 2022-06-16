@@ -37,6 +37,22 @@ class UserService {
         $entityManager->flush();
     }
 
+    public function updateUser(int $id, string $mail, string $nom, string $prenom, string $password): void {
+        $entityManager = $this->doctrine->getManager();
+        $user = $this->userRepository->find($id);
+
+        if (!empty($password)) {
+            $hashedPassword = $this->passwordHasher->hashPassword($user, $password);
+            $user->setPassword($hashedPassword);
+        }
+        $user->setEmail($mail);
+        $user->setNom($nom);
+        $user->setPrenom($prenom);
+
+        $entityManager->merge($user);
+        $entityManager->flush();
+    }
+
     public function getAllUsers(): array {
         return $this->userRepository->findAll();
     }
