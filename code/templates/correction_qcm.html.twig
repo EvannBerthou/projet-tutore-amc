@@ -1,0 +1,50 @@
+{% extends 'base.html.twig'%}
+
+{% block title %}
+    {{ parent() }} - Correction du QCM
+{% endblock %}
+
+{% block style %}
+    {{ parent() }}
+    <link href="{{ asset('style/correction.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block main %}
+    <nav>
+        {% block nav %}
+            {% include 'menu.html.twig' %}
+        {% endblock %}
+    </nav>
+
+    <main>
+        <div class="titre">
+            Correction
+        </div>
+        <div class="centre">
+            <div class="container">
+
+                <form method="POST" action="#" class="alignement">
+                    <p>
+                    <label for="qcm">QCM</label>
+                    <select name="num_qcm" required>
+                        <option>QCM 1</option>
+                    </select>
+                    </p>
+                    <p>
+                    <label for="fichier">Copies</label>
+                    <input type="file" name="fichier" accept=".pdf" multiple>
+                    </p>
+                    <p>
+                    <label for="liste_etudiants">Etudiants</label>
+                    <input type="file" name="fichier_etudiant_csv" accept=".csv">
+                    </p>
+                    <div class="validation_button">
+                        <input type="submit" value="Corriger">
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

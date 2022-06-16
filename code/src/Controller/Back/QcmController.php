@@ -8,6 +8,7 @@ use App\Repository\QCMRepository;
 use App\Repository\QuestionRepository;
 use App\Repository\ReponseRepository;
 use App\Utils\QcmUtils;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -57,6 +58,17 @@ class QcmController extends AbstractController {
 
         $content = $this->qcmUtils->generate_qcm($qcm);
         return $this->qcmUtils->create_qcm_file_to_send('file.pdf', $content);
+    }
+
+    #[Route('/', name: 'app_back_new_qcm')]
+    public function newQCM(): Response {
+        $id = $this->qcmUtils->getNextId();
+        $qcm = new QCM();
+        $qcm->setTitre("");
+        $qcm->setUser($this->getUser());
+        $qcm->setDate(new DateTime("NOW"));
+        $this->QCMRepository->newQCM($qcm);
+        return new Response($qcm->getId());
     }
 
     #[Route('/list', name: 'app_list_qcm')]

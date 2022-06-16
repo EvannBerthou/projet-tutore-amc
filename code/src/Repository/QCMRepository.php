@@ -30,4 +30,10 @@ class QCMRepository extends ServiceEntityRepository {
         $entityManager->merge($qcm);
         $entityManager->flush();
     }
+
+    public function newQCM($qcm) {
+        $entityManager = $this->getEntityManager();
+        $entityManager->persist($qcm);
+        $entityManager->flush();
+    }
 }

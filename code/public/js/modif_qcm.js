@@ -34,7 +34,6 @@ function deleteQuestion(questionId) {
 }
 
 function addReponse(questionId) {
-    console.log(questionId);
     const question = document.querySelector(`div[name='Q-${questionId}']`); 
     const parent = question.querySelector("#reponses");
 
@@ -103,4 +102,9 @@ function save_qcm() {
     const body = JSON.stringify(qcm);
     fetch(window.location.origin + "/api/qcm/" + qcmId, {method: 'POST', body})
         .then(res => location.reload());
+}
+
+if (divParent.children.length === 0) {
+    addQuestion();
+    addReponse(1);
 }

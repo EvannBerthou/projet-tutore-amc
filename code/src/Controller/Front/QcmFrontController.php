@@ -44,9 +44,9 @@ class QcmFrontController extends AbstractController {
         ]);
     }
 
-    #[Route('/modif_qcm', name: 'app_qcm_new')]
+    #[Route('/nouveau', name: 'app_qcm_new')]
     public function newQCM(): Response {
-        $id = $this->qcmUtils->getNextId();
+        $id = $this->forwardTo('app_back_new_qcm')->getContent();
         return $this->redirectToRoute('app_qcm_front_update', ['id' => $id]);
     }
 
@@ -55,13 +55,9 @@ class QcmFrontController extends AbstractController {
         /** @var Utilisateur $session */
         $session = $this->getUser();
         $qcm = $this->qcmUtils->getQcm($id);
-    
-        if ($qcm !== null && $qcm->getUser()->getId() !== $session->getId()) {
-            throw new AccessDeniedHttpException("Vous n'êtes pas le propriétaire de ce QCM");
-        }
 
-        if ($qcm === null) {
-            $qcm = new QCM();
+        if ($qcm === null || ($qcm !== null && $qcm->getUser()->getId() !== $session->getId())) {
+            throw new AccessDeniedHttpException("Vous n'êtes pas le propriétaire de ce QCM");
         }
 
         return $this->render("modif_qcm_new.html.twig", [

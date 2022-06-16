@@ -13,7 +13,7 @@
 .titre
 {
     text-align: center;
-    font-size: larger;
+    font-size: xx-large;
     color: var(--light);
     padding: 5% 0 5% 0;
 }
@@ -23,15 +23,10 @@
     text-align: center;
 }
 
-.stay_connected
-{
-    color: var(--light);
-    padding-left: 20%;
-}
-
 .container .user_box
 {
     position: relative;
+    width: 50em;
 }
 
 .container .user_box input[type=email]
@@ -61,12 +56,6 @@
     text-align: center;
     background-image: url("../svg/lock.svg");
     background-repeat: no-repeat;
-}
-
-.icon
-{
-    width: 4%;
-    opacity: 0;
 }
 
 a
