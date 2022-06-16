@@ -2,6 +2,7 @@
 
 namespace App\Controller\Back;
 
+use App\Repository\UserRepository;
 use Exception;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,7 +13,14 @@ use App\Service\UserService;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 #[Route('/api/user')]
+#[IsGranted('ROLE_USER')]
 class UserController extends AbstractController {
+    private UserRepository $userRepository;
+
+    public function __constructor(UserRepository $userRepository) {
+        $this->userRepository = $userRepository;
+    }
+
     #[Route('/', name: 'app_user_new_user', methods: ['POST'])]
     public function addNewUser(Request $request, LoggerInterface $logger, UserService $userService): Response {
         $mail = $request->request->get('mail');
@@ -47,6 +55,11 @@ class UserController extends AbstractController {
         $userService->updateUser($id, $mail, $nom, $prenom, $password);
         //TODO: Rediriger vers la liste des utilisateurs
         return $this->redirectToRoute('app_admin_front_users');
+    }
+
+    #[Route('/{id}', name: 'app_user_delete', methods: ['DELETE'])]
+    public function deleteUser(int $id) {
+        $this->userRepository->deleteUser($id);
     }
 
     #[Route('/login', name: 'app_user_login')]

@@ -40,7 +40,7 @@
                 </td>
                 <td>
                     <a href="{{ path('app_admin_front_user', {id: user.getId()}) }}"><img class="image" src="../svg/modif.svg"></a>
-                    <img class="poubelle image" src="../svg/poubelle.svg">
+                    <a href="{{path('app_admin_delete_user', {id: user.getId()}) }}"><img class="poubelle image" src="../svg/poubelle.svg"></a>
                 </td>
             </tr>
             {% endfor %}

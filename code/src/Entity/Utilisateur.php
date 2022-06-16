@@ -31,7 +31,7 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface {
     #[ORM\Column(type: 'string')]
     private $password;
 
-    #[ORM\OneToMany(targetEntity: QCM::class, mappedBy: "user", cascade:["persist"])]
+    #[ORM\OneToMany(targetEntity: QCM::class, mappedBy: "user", cascade:["persist", "remove"])]
     private $qcms;
 
     public function getId(): ?int {

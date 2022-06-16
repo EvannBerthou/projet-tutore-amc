@@ -37,4 +37,10 @@ class AdminController extends AbstractController {
         $user = $this->UserRepository->find($id);
         return $this->render('modif_utilisateur.html.twig', ['session' => $session, 'user' => $user, 'id' => $id]);
     }
+
+    #[Route('/utilisateurs/delete/{id}', name: 'app_admin_delete_user')]
+    public function deleteUser(int $id): Response {
+        $this->UserRepository->deleteUser($id);
+        return $this->redirectToRoute("app_admin_front_users");
+    }
 }
