@@ -81,6 +81,16 @@
     font-size: medium;
 }
 
+#enonceQuestion::placeholder
+{
+    color: var(--light);
+}
+
+.text_reponse::placeholder
+{
+    color: var(--light);
+}
+
 .text_reponse
 {
     margin: 5px;

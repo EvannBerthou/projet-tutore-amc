@@ -17,11 +17,6 @@ body
     font-size: 100%;
 }
 
-::placeholder
-{
-    color: var(--light);
-}
-
 .boutonmenuprincipal
 {
     color: var(--dark);
