@@ -70,7 +70,7 @@ function deleteReponse(questionId, reponseId) {
 }
 
 function generate_pdf() {
-    fetch(`${window.location.origin}/api/qcm/generate/${qcmId}`)
+    fetch(`http://sutalite.me/projet/api/qcm/generate/${qcmId}`)
         .then(res => res.blob())
         .then(data => {
             const file = new Blob([data], {type: 'application/pdf'});
@@ -100,7 +100,7 @@ function save_qcm() {
     console.log(qcm);
 
     const body = JSON.stringify(qcm);
-    fetch(window.location.origin + "/api/qcm/" + qcmId, {method: 'POST', body})
+    fetch("http://sutalite.me/projet/api/qcm/" + qcmId, {method: 'POST', body})
         .then(res => location.reload());
 }
 
