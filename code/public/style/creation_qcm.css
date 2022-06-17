@@ -161,7 +161,6 @@ p
 
 .boutons_option
 {
-    cursor: pointer;
     width: 15em;
     padding: 4%;
     border-radius: 23px;
@@ -172,12 +171,71 @@ p
     z-index: -1;
 }
 
+.boutons_option_sans_switch
+{
+    width: 15em;
+    padding: 4%;
+    border-radius: 23px;
+    background-color: var(--middle);
+    color: var(--light);
+    border: none;
+    margin: 2%;
+    z-index: -1;
+}
+
+.boutons_option_sans_switch input
+{
+    border: none;
+    background-color: var(--middle);
+    color: var(--light);
+    padding-left: 3%;
+}
+
+.boutons_option_sans_switch select
+{
+    border: none;
+    background-color: var(--middle);
+    color: var(--light);
+    padding-left: 3%;
+}
+
+.boutons_option label
+{
+    float: right;
+}
+
+.boutons_option input
+{
+    float: left;
+}
+
+.boutons_option_sans_switch label
+{
+    float: left;
+}
+
+.boutons_option_sans_switch input
+{
+    float: right;
+    text-align: right;
+}
+
+.boutons_option_sans_switch select
+{
+    float: right;
+}
+
 .boutons_option input
 {
     border: none;
     background-color: var(--middle);
     color: var(--light);
     padding-left: 3%;
+}
+
+.ajout
+{
+
 }
 
 /****************** TOGGLE ****************/
