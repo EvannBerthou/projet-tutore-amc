@@ -83,7 +83,6 @@ class QcmUtils {
         $normalizers = [new ArrayDenormalizer(), new ObjectNormalizer(null, null, null, $extractor)];
         $serializer = new Serializer($normalizers, $encoders);
         $qcms = $serializer->deserialize($json, QCM::class, 'json');
-        dd($qcms);
         return $qcms;
     }
 }

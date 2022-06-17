@@ -62,9 +62,12 @@ class QcmController extends AbstractController {
 
     #[Route('/', name: 'app_back_new_qcm')]
     public function newQCM(): Response {
+        /** @var Utilisateur $user */
+        $user = $this->getUser();
         $id = $this->qcmUtils->getNextId();
         $qcm = new QCM();
-        $qcm->setTitre("");
+        $nextId = count($this->QCMRepository->getQCMsOfUser($user->getId())) + 1;
+        $qcm->setTitre("QCM " . $nextId);
         $qcm->setUser($this->getUser());
         $qcm->setDate(new DateTime("NOW"));
         $this->QCMRepository->newQCM($qcm);

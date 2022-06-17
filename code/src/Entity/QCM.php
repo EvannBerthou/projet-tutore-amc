@@ -39,7 +39,7 @@ class QCM {
     }
 
     public function getTitre(): string {
-        return $this->titre or "";
+        return $this->titre;
     }
 
     public function setTitre(string $titre) {
