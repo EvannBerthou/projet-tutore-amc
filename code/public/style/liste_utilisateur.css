@@ -69,7 +69,7 @@ tr:hover {
     color: var(--light);
     text-decoration: none;
     right: 3%;
-    position: fixed;
+    position: absolute;
     font-size: medium;
     font-weight: normal;
 }

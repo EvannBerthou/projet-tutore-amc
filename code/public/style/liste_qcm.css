@@ -53,3 +53,8 @@ select
     background-color: var(--light);
     font-size: small;
 }
+
+.poubelle
+{
+    width: 2em;
+}
