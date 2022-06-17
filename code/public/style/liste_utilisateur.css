@@ -63,3 +63,13 @@ tr:nth-child(even) {
 tr:hover {
     background-color: #C0C0C0;
 }
+
+.bouton_add
+{
+    color: var(--light);
+    text-decoration: none;
+    right: 3%;
+    position: fixed;
+    font-size: medium;
+    font-weight: normal;
+}
