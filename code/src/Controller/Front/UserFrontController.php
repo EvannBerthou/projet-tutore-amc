@@ -10,8 +10,6 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class UserFrontController extends AbstractController {
     #[Route('/connexion', name: 'app_front_connexion')]
     public function login(AuthenticationUtils $authenticationUtils): Response {
-        //TODO: Mettre le message d'erreur en français 
-        // https://stackoverflow.com/questions/61647960/how-to-change-the-authentication-error-message
         return $this->render('connexion.html.twig', [
             'error' => $authenticationUtils->getLastAuthenticationError(),
         ]);
