@@ -1,7 +1,9 @@
 <div class="question" id="{{question.id}}" name="Q-{{id}}">
     <div>
-        <label id="questionTitre"> Question {{ id }} : </label>
-        <input id="enonceQuestion" type="text" placeholder="Entrez une question ici" size="50" value="{{question.enonce}}" />
+        <p class="label_question">
+            <label id="questionTitre"> Question {{ id }} : </label>
+            <textarea id="enonceQuestion" type="text" placeholder="Entrez une question ici" value="{{question.enonce}}"></textarea>
+        </p>
 
         <div id="reponses">
             {% for reponse in question.reponses %}
