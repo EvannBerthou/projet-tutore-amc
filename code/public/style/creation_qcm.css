@@ -137,7 +137,7 @@ textarea:focus
     flex-direction: column;
     position: fixed;
     left: 70%;
-    margin-top: 5%;
+    margin-top: 4%;
 }
 
 .button_form input
