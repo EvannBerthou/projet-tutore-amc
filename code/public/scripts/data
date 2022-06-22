@@ -1,0 +1,84 @@
+PaperSize: A4
+Lang: FR
+Title: titre 2
+Code: 3
+SeparateAnswerSheet: 1
+Columns: 2
+AnswerSheetColumns: 2
+Presentation: Veuillez répondre aux questions ci-dessous du mieux que vous pouvez.
+
+*( Questions sur Mr.Hoguin
+
+*<lines=4> Décrivez Mr.Hoguin
+-[0]{0} AB
+-[P]{1} B
++[V]{2} TB
+
+* Dans quel lycée a-t-il enseigné ?
+- Lycée Fulbert
++ Lycéee Jacques Feyder 
+- Lycée Jean Rostand
+
+* De quelle matière traite le livre qu'il a écrit ?
+- Programmation Web
+- Réseaux
++ Maths
+
+*)
+
+*( Questions sur Mme.Hoguin
+
+* Quel est son nom de jeune fille ?
+- Randianasollo
++ Randrianasolo
+- Rendrianasolo
+
+** Quelles chansons de rap aime-t-elle ?
++ Chacun fait de Chagrin d'amour 
+- La Kiffance de Naps
++ The Breaks de Kurtis Blow
+
+*)
+
+*( Questions sur Mr.Barreau
+
+* Dans quel entreprise à travaillé Mr.Barreau avant d'être professeur ?
+- Renault
++ Peugot
+- Buggati
+
+** Quelles matières enseigne-t-il ?
++ Création d'entreprise
++ Gestion d'entreprise
+- Destruction d'entreprise
+
+*)
+
+
+*( Questions sur Mme.Robba
+
+* En quelle année a-t-elle soutenu sa thèse ?
+- 1991
++ 1992
+- 1993
+
+* Dans quel laboratoire faisait-elle de la recherche ?
+- CERN
+- ICMMO
++ LIMSI
+
+*)
+
+*( Questions sur Mme.Barbot
+
+*<lines=4> Faites un bilan de l'enseignement Informatique et Société en IUT
+-[0]{0} AB
+-[P]{1} B
++[V]{2} TB
+
+* Avec qui a-t-elle écrit un article pour Libération.fr ?
++ Mr.Marsan
+- Mr.Dufaud
+- Mr.Auger
+
+*)

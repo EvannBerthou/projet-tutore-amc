@@ -30,7 +30,7 @@ class QcmUtils {
 
     public function generate_qcm(QCM $qcm): string {
         $data = $qcm->toAMCTXT();
-        $process = new Process(['bash', 'scripts/test.sh', $data]);
+        $process = new Process(['bash', 'scripts/generer.sh', $qcm->getId(), $data]);
         $process->run();
 
         // executes after the command finishes

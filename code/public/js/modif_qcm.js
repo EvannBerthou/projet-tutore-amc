@@ -10,7 +10,7 @@ function addQuestion() {
 
     clone.querySelector('.question').setAttribute('name', `Q-${id}`);
     const titre = clone.querySelector("#questionTitre");
-    titre.innerText = `Question ${id}`;
+    titre.innerText = `Question ${id} : `;
 
     const addReponseButton = clone.querySelector("#addReponse");
     addReponseButton.onclick = () => addReponse(id);

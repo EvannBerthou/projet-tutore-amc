@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-PROJECT_DIR=project
+PROJECT_DIR=$1
 
 create_project() {
     mkdir $PROJECT_DIR
@@ -23,11 +23,12 @@ pushd $(pwd) > /dev/null
 cd $PROJECT_DIR
 # Possible perte de perf à cause d'une utilisation du disque dur au lieu de passer par la ram
 # Écriture du QCM dans un fichier
- echo -e "$1" > tmp
-auto-multiple-choice prepare --mode s --data data --filter plain --n-copies 1 tmp > /tmp/log.txt 2> /tmp/error.txt
+ echo -e "$2" > tmp
+auto-multiple-choice prepare --mode s --data data --filter plain --n-copies 20 tmp 
 
 # Nettoyage des fichiers crées
+cp tmp /tmp/data
 rm tmp
 cat tmp_filtered-sujet.pdf
 popd > /dev/null
-rm -dr $PROJECT_DIR
+#rm -dr $PROJECT_DIR

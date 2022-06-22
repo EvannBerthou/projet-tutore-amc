@@ -54,6 +54,9 @@ class UserService {
     }
 
     public function getAllUsers(): array {
-        return $this->userRepository->findAll();
+        return $this->userRepository->findBy(
+            array(),
+            array('nom' => 'ASC')
+        );
     }
 }
