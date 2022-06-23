@@ -23,7 +23,7 @@
             {% if 'ROLE_ADMIN' in session.getRoles() %}
                 <a href="{{ path('app_admin_front_users') }}">Liste des utilisateurs</a>
             {% endif %}
-            <a href="./directory/yourfile.pdf" download="manuel_utilisateur_BETA">Télécharger le manuel utilisateur</a>
+            <a href="{{ asset('manuel.pdf') }}" download="manuel_utilisateur_BETA">Télécharger le manuel utilisateur</a>
             <a href="{{ path('app_logout') }}">Déconnexion</a>
         </div>
     </div>

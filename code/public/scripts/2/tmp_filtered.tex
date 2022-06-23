@@ -1,0 +1,191 @@
+\documentclass{article}
+\usepackage{xltxtra}
+\usepackage[bloc,completemulti,separateanswersheet,lang=FR]{automultiplechoice}
+\usepackage{multicol}
+\setmainfont{Linux Libertine O}
+\geometry{paper=a4paper}
+\begin{document}
+\def\AMCmakeTitle#1{\par\noindent\hrule\vspace{1ex}{\hspace*{\fill}\Large\bf #1\hspace*{\fill}}\vspace{1ex}\par\noindent\hrule\par\vspace{1ex}}
+\AMCrandomseed{1527384}
+
+\element{grG}{
+\insertPlainGroupunnamedB
+}
+\element{grG}{
+\insertPlainGroupunnamedC
+}
+\element{grG}{
+\insertPlainGroupunnamedD
+}
+\element{grG}{
+\insertPlainGroupunnamedE
+}
+\element{grG}{
+\insertPlainGroupunnamedF
+}
+\def\insertPlainGroupgrG{\insertgroup{grG}}
+\element{unnamedB}{
+\begin{question}{Q001}
+Décrivez Mr.Hoguin
+\AMCOpen{lines=4}{\wrongchoice[0]{AB}\scoring{0}
+\wrongchoice[P]{B}\scoring{1}
+\correctchoice[V]{TB}\scoring{2}
+}
+\end{question}
+}
+\element{unnamedB}{
+\begin{question}{Q002}
+Dans quel lycée a-{}t-{}il enseigné ?
+\begin{choices}
+\wrongchoice{Lycée Fulbert}
+\correctchoice{Lycéee Jacques Feyder}
+\wrongchoice{Lycée Jean Rostand}
+\end{choices}
+\end{question}
+}
+\element{unnamedB}{
+\begin{question}{Q003}
+De quelle matière traite le livre qu'il a écrit ?
+\begin{choices}
+\wrongchoice{Programmation Web}
+\wrongchoice{Réseaux}
+\correctchoice{Maths}
+\end{choices}
+\end{question}
+}
+\def\insertPlainGroupunnamedB{\noindent Questions sur Mr.Hoguin\vspace{1.5ex}\par
+\insertgroup{unnamedB}\vspace{1.5ex}\par
+}
+\element{unnamedC}{
+\begin{question}{Q004}
+Quel est son nom de jeune fille ?
+\begin{choices}
+\wrongchoice{Randianasollo}
+\correctchoice{Randrianasolo}
+\wrongchoice{Rendrianasolo}
+\end{choices}
+\end{question}
+}
+\element{unnamedC}{
+\begin{questionmult}{Q005}\scoring{haut=2}
+Quelles chansons de rap aime-{}t-{}elle ?
+\begin{choices}
+\correctchoice{Chacun fait de Chagrin d'amour}
+\wrongchoice{La Kiffance de Naps}
+\correctchoice{The Breaks de Kurtis Blow}
+\end{choices}
+\end{questionmult}
+}
+\def\insertPlainGroupunnamedC{\noindent Questions sur Mme.Hoguin\vspace{1.5ex}\par
+\insertgroup{unnamedC}\vspace{1.5ex}\par
+}
+\element{unnamedD}{
+\begin{question}{Q006}
+Dans quel entreprise à travaillé Mr.Barreau avant d'être professeur ?
+\begin{choices}
+\wrongchoice{Renault}
+\correctchoice{Peugeot}
+\wrongchoice{Buggati}
+\end{choices}
+\end{question}
+}
+\element{unnamedD}{
+\begin{questionmult}{Q007}\scoring{haut=2}
+Quelles matières enseigne-{}t-{}il ?
+\begin{choices}
+\correctchoice{Création d'entreprise}
+\correctchoice{Gestion d'entreprise}
+\wrongchoice{Destruction d'entreprise}
+\end{choices}
+\end{questionmult}
+}
+\def\insertPlainGroupunnamedD{\noindent Questions sur Mr.Barreau\vspace{1.5ex}\par
+\insertgroup{unnamedD}\vspace{1.5ex}\par
+}
+\element{unnamedE}{
+\begin{question}{Q008}
+En quelle année a-{}t-{}elle soutenu sa thèse ?
+\begin{choices}
+\wrongchoice{1991}
+\correctchoice{1992}
+\wrongchoice{1993}
+\end{choices}
+\end{question}
+}
+\element{unnamedE}{
+\begin{question}{Q009}
+Dans quel laboratoire fait-{}elle de la recherche ?
+\begin{choices}
+\wrongchoice{CERN}
+\wrongchoice{ICMMO}
+\correctchoice{LIMSI}
+\end{choices}
+\end{question}
+}
+\def\insertPlainGroupunnamedE{\noindent Questions sur Mme.Robba\vspace{1.5ex}\par
+\insertgroup{unnamedE}\vspace{1.5ex}\par
+}
+\element{unnamedF}{
+\begin{question}{Q010}
+Faites un bilan de l'enseignement Informatique et Société en IUT
+\AMCOpen{lines=4}{\wrongchoice[0]{AB}\scoring{0}
+\wrongchoice[P]{B}\scoring{1}
+\correctchoice[V]{TB}\scoring{2}
+}
+\end{question}
+}
+\element{unnamedF}{
+\begin{question}{Q011}
+Avec qui a-{}t-{}elle écrit un article pour Libération.fr ?
+\begin{choices}
+\correctchoice{Mr.Marsan}
+\wrongchoice{Mr.Dufaud}
+\wrongchoice{Mr.Auger}
+\end{choices}
+\end{question}
+}
+\def\insertPlainGroupunnamedF{\noindent Questions sur Mme.Barbot\vspace{1.5ex}\par
+\insertgroup{unnamedF}}
+\onecopy{5}{
+\begin{center}\bf\large Les profs de l'IUT\end{center}
+
+Veuillez répondre aux questions ci-{}dessous du mieux que vous pouvez.
+
+\vspace{4mm}\noindent\hrule
+
+
+\shufflegroup{grG}
+\shufflegroup{unnamedB}
+\shufflegroup{unnamedC}
+\shufflegroup{unnamedD}
+\shufflegroup{unnamedE}
+\shufflegroup{unnamedF}
+\begin{multicols}{2}
+\insertPlainGroupgrG
+\end{multicols}
+
+\AMCcleardoublepage
+
+\AMCformBegin
+{\setlength{\parindent}{0pt}\hspace*{\fill}\hbox{\vtop{\AMCcodeH{id}{3}}}\hspace*{\fill}\begin{minipage}[t]{5.8cm}$\longleftarrow{}$\hspace{0pt plus 1cm}Please code your student number opposite, and write your name in the box below.\vspace{3ex}
+
+\hfill\namefield{\fbox{\begin{minipage}{.9\linewidth}\AMClocalized{namesurname}
+
+\vspace*{.5em}\dotfill
+
+\vspace*{.5em}\dotfill
+\vspace*{1mm}
+\end{minipage}
+}}\hfill\vspace{5ex}\end{minipage}\hspace*{\fill}
+
+}\vspace{4mm}
+\vspace{4mm}\noindent\hrule
+
+
+\begin{multicols}{2}
+\AMCform
+\end{multicols}
+
+
+}
+\end{document}

@@ -88,6 +88,9 @@ class QCM {
         PaperSize: A4
         Lang: FR
         Title: $this->titre
+        SeparateAnswerSheet: 1
+        Columns: 2
+        AnswerSheetColumns: 2
         Presentation: Veuillez répondre aux questions ci-dessous du mieux que vous pouvez.
 
         HERODOC;

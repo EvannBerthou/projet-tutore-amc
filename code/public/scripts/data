@@ -1,6 +1,6 @@
 PaperSize: A4
 Lang: FR
-Title: titre 2
+Title: Les profs de l'IUT
 Code: 3
 SeparateAnswerSheet: 1
 Columns: 2
@@ -44,7 +44,7 @@ Presentation: Veuillez répondre aux questions ci-dessous du mieux que vous pouv
 
 * Dans quel entreprise à travaillé Mr.Barreau avant d'être professeur ?
 - Renault
-+ Peugot
++ Peugeot
 - Buggati
 
 ** Quelles matières enseigne-t-il ?
@@ -62,7 +62,7 @@ Presentation: Veuillez répondre aux questions ci-dessous du mieux que vous pouv
 + 1992
 - 1993
 
-* Dans quel laboratoire faisait-elle de la recherche ?
+* Dans quel laboratoire fait-elle de la recherche ?
 - CERN
 - ICMMO
 + LIMSI
@@ -82,3 +82,4 @@ Presentation: Veuillez répondre aux questions ci-dessous du mieux que vous pouv
 - Mr.Auger
 
 *)
+

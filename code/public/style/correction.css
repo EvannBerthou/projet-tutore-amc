@@ -16,6 +16,7 @@
     padding: 1%;
 }
 
+/*
 .validation_button a
 {
     text-decoration: none;
@@ -25,19 +26,23 @@
     margin-top: 2.5em;
     margin-left: 10em;
 }
+*/
 
+/*
 .validation_button a:hover
 {
     color: var(--middle);
     transition: 0.5s;
 }
+*/
 
 .validation_button
 {
     text-align: center;
+    margin-bottom: 1em;
 }
 
-.validation_button input
+.validation_button a
 {
     margin-top: 1em;
     margin-bottom: 1em;
@@ -50,7 +55,7 @@
     cursor: pointer;
 }
 
-.validation_button input:hover
+.validation_button a:hover
 {
     background-color: var(--light);
     color: var(--middle);
@@ -103,7 +108,7 @@ select
     font-size: small;
 }
 
-input
+input, a
 {
     color: var(--light);
 }
